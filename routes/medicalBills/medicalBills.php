@@ -1,0 +1,55 @@
+<?php
+
+Route::group(['prefix' => 'medicalBills'], function () {
+	Route::group(['middleware' => 'auth:api', 'throttle:60,1'], function() {
+		Route::get('permisos',   'MedicalBills\MedicalBillsController@permisos');
+		Route::post('assign',   'MedicalBills\MedicalBillsController@assign');
+		Route::get('count',   'MedicalBills\MedicalBillsController@count');
+		Route::get('myAssigned',   'MedicalBills\MedicalBillsController@myAssigned');
+		Route::get('invoiceAssign/{prestador}',   'MedicalBills\MedicalBillsController@invoiceAssign');
+		Route::get('invoiceService/{af}',   'MedicalBills\MedicalBillsController@invoiceService');
+		Route::post('glosa',   'MedicalBills\MedicalBillsController@glosa');
+		Route::post('adjuntarFactura',   'MedicalBills\MedicalBillsController@adjuntarFactura');
+		Route::post('saveAuditoria',   'MedicalBills\MedicalBillsController@saveAuditoria');
+		Route::get('auditadas',   'MedicalBills\MedicalBillsController@auditadas');
+		Route::get('invoiceAuditadas/{prestador}',   'MedicalBills\MedicalBillsController@invoiceAuditadas');
+		Route::get('invoiceServiceAuditadas/{af}',   'MedicalBills\MedicalBillsController@invoiceServiceAuditadas');
+		Route::post('devolverAuditoria',   'MedicalBills\MedicalBillsController@devolverAuditoria');
+		Route::post('notifyPrestador',   'MedicalBills\MedicalBillsController@notifyPrestador');
+		Route::post('saveServicio',   'MedicalBills\MedicalBillsController@saveServicio');
+		Route::get('invoicePrestadores',   'MedicalBills\MedicalBillsController@invoicePrestadores');
+		Route::get('invoiceServiceprestador/{af}',   'MedicalBills\MedicalBillsController@invoiceServiceprestador');
+		Route::post('respuestaPrestador',   'MedicalBills\MedicalBillsController@respuestaPrestador');
+		Route::post('adjunto',   'MedicalBills\MedicalBillsController@adjunto');
+		Route::post('saveAuditoriaPrestador',   'MedicalBills\MedicalBillsController@saveAuditoriaPrestador');
+		Route::get('auditoriaFinal',   'MedicalBills\MedicalBillsController@auditoriaFinal');
+		Route::get('invoiceAuditoriaFinal/{prestador}',   'MedicalBills\MedicalBillsController@invoiceAuditoriaFinal');
+		Route::get('invoiceServiceAuditoriaFinal/{af}',   'MedicalBills\MedicalBillsController@invoiceServiceAuditoriaFinal');
+		Route::post('respuestaSumi',   'MedicalBills\MedicalBillsController@respuestaSumi');
+		Route::post('saveAuditoriaFinal',   'MedicalBills\MedicalBillsController@saveAuditoriaFinal');
+		Route::get('facturasFinalizadas',   'MedicalBills\MedicalBillsController@facturasFinalizadas');
+		Route::get('invoiceConciliacion/{prestador}',   'MedicalBills\MedicalBillsController@invoiceConciliacion');
+		Route::get('invoiceServiceConciliacion/{af}',   'MedicalBills\MedicalBillsController@invoiceServiceConciliacion');
+		Route::get('facturasCerradas',   'MedicalBills\MedicalBillsController@facturasCerradas');
+		Route::get('invoiceCerradas/{prestador}',   'MedicalBills\MedicalBillsController@invoiceCerradas');
+		Route::get('invoiceServiceCerradas/{af}',   'MedicalBills\MedicalBillsController@invoiceServiceCerradas');
+		Route::post('saveConciliacion',   'MedicalBills\MedicalBillsController@saveConciliacion');
+		Route::get('invoicePrestadoresConciliacion',   'MedicalBills\MedicalBillsController@invoicePrestadoresConciliacion');
+		Route::get('invoicePrestadoresCerradas',   'MedicalBills\MedicalBillsController@invoicePrestadoresCerradas');
+		Route::post('showPersisteSumi',   'MedicalBills\MedicalBillsController@showPersisteSumi');
+		Route::post('informe',   'MedicalBills\MedicalBillsController@informe');
+		Route::get('facturasConSaldo',   'MedicalBills\MedicalBillsController@facturasConSaldo');
+		Route::get('invoiceConciliacionSaldo/{prestador}',   'MedicalBills\MedicalBillsController@invoiceConciliacionSaldo');
+		Route::get('invoiceServiceConciliacionSaldo/{af}',   'MedicalBills\MedicalBillsController@invoiceServiceConciliacionSaldo');
+		Route::post('showPersisteSumiSaldo',   'MedicalBills\MedicalBillsController@showPersisteSumiSaldo');
+		Route::post('saveConciliacionSaldo',   'MedicalBills\MedicalBillsController@saveConciliacionSaldo');
+		Route::post('actas',   'MedicalBills\MedicalBillsController@actas');
+		Route::get('permisosCmedicas',   'MedicalBills\MedicalBillsController@permisosCmedicas');
+		Route::post('cargaPagos',   'MedicalBills\MedicalBillsController@cargaPagos');
+		Route::post('searchCargaPagos',   'MedicalBills\MedicalBillsController@searchCargaPagos');
+		Route::post('searchCargaPagosPrestador',   'MedicalBills\MedicalBillsController@searchCargaPagosPrestador');
+		Route::get('deletePagosPrestador/{adjuntoPago}',   'MedicalBills\MedicalBillsController@deletePagosPrestador');
+		Route::post('generarEstadoCuenta',   'MedicalBills\MedicalBillsController@generarEstadoCuenta');
+        Route::post('saveConciliacionAdministrativa',   'MedicalBills\MedicalBillsController@saveConciliacionAdministrativa');
+	});
+});
