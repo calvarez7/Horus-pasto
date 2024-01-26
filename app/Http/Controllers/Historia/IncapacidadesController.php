@@ -103,6 +103,7 @@ class IncapacidadesController extends Controller
             'incapacidades.Fechainicio',
             'incapacidades.Dias',
             'incapacidades.Fechafinal',
+            'p.Laboraen',
             'incapacidades.Prorroga',
             'incapacidades.Contingencia',
             'incapacidades.created_at as Fecha_Legalizacion',
@@ -112,23 +113,16 @@ class IncapacidadesController extends Controller
             'p.Primer_Ape',
             'p.Segundo_Ape',
             'p.Tipo_Doc',
-            'p.Num_Doc',
-            'co.Codigodanecolegio',
-            'm.Nombre as Nombre_Municipio',
-            'd.Nombre as Nombre_Departamento'])
+            'p.Num_Doc',])
             ->leftjoin('cie10s as c', 'incapacidades.Cie10_id', 'c.id')
             ->join('ordens as o', 'incapacidades.Orden_id', 'o.id')
             ->join('cita_paciente as cp', 'o.Cita_id', 'cp.id')
             ->join('pacientes as p', 'cp.Paciente_id', 'p.id')
-            ->leftjoin('Colegios as co', 'incapacidades.Laboraen', 'co.Nombre')
-            ->leftjoin('Municipios as m', 'co.Municipio_id', 'm.id')
-            ->leftjoin('Departamentos as d', 'm.Departamento_id', 'd.id')
             ->get();
+            
+            return (new FastExcel($incapacidades))->download('file.xls');
 
-        return response()->json($incapacidades, 200);
-        // // Export all users
-        // (new FastExcel($incapacidades))->download('All.xlsx');
-        // return (new FastExcel(Incapacidade::all()))->download('file.xlsx');
+        
     }
 
     private function getRange($request)

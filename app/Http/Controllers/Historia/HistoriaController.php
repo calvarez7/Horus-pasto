@@ -88,17 +88,165 @@ class HistoriaController extends Controller
     {
         $atender = citapaciente::where('id', $request->cita_paciente_id)->first();
         if ($request->Especialidad == 'Optometria') {
-            $atender->update([
-                'Datetimeingreso' => now(),
-                'Estado_id' => 8,
-                'Tipocita_id' => 17
-            ]);
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
+                    $atender->update([
+                        'Datetimeingreso' => now(),
+                        'Estado_id' => 8,
+                        'Tipocita_id' => 17
+                    ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Oftalmologia') {
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
             $atender->update([
                 'Datetimeingreso' => now(),
                 'Estado_id' => 8,
                 'Tipocita_id' => 12
             ]);
+            break;
+        }
         }else if ($request->Especialidad == 'Oncologia') {
             $atender->update([
                 'Datetimeingreso' => now(),
@@ -144,6 +292,62 @@ class HistoriaController extends Controller
                     'Tipocita_id'       => 3 // Procedimientos Menores
                 ]);
                 break;
+            case "27":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+            case "28":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+            case "39":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+            case "42":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+            case "53":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+            case "133":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+            case "429":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+            case "648":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
             case "443":
                 $atender->update([
                     'Datetimeingreso'   => now(),
@@ -161,13 +365,76 @@ class HistoriaController extends Controller
             }
         }else if ($request->Especialidad == 'Auxiliar De Enfermeria'){
             switch ($request->tipoAgenda){
-            case "5":
-                $atender->update([
-                    'Datetimeingreso'   => now(),
-                    'Estado_id'         => 8,
-                    'Tipocita_id'       => 3 // Procedimientos Menores
-                ]);
-                break;
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
             default:
                 $atender->update([
                     'Datetimeingreso'   => now(),
@@ -285,323 +552,4245 @@ class HistoriaController extends Controller
                     break;
             }
         }else if ($request->Especialidad == 'Medico Experto Salud Mental'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 19
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Medico Experto Reumatologia'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 20
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Medico Experto Anticoagulados'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 21
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Medico Experto Nefroproteccion'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 22
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Medico Experto Respiratorios'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 23
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Medico Experto Trasmisibles Cronicas'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 24
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Psiquiatria'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 25
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Neurologia'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 26
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Cardiologia'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 27
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Ginecologia'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 28
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Obstetricia'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 29
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Medicina Interna'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 30
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Anestesiologia'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 31
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Medicina Familiar'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 32
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Hematologia'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 33
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Nefrologia'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 34
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Otorrinolaringologia'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 35
                     ]);
-        }else if ($request->Especialidad == 'Ortopedia Y Traumatologia'){
+                    break;
+                }
+        }else if ($request->Especialidad === 'Ortopedia y Traumatologia'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 36
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Endocrinologia'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 37
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Cirugia Coloproctologica'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 38
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Cirugia General'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 39
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Pediatria'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 40
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Dermatologia'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 41
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Medicina Del Deporte'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 42
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Alergologia'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 43
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Mastologia'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 44
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Neumologia'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 45
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Medicina Del Dolor'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 46
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Toxicologia'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 47
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Fisiatria'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 48
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Urologia'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 49
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Medicina Alternativa'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 50
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Neurocirugia'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 51
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Infectologia'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 52
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Reumatologia'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 53
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Electrofisiologia'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 54
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Fonoaudiologia'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 55
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Terapia Respiratoria'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 56
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Fisioterapia'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 57
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Trabajo Social'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 58
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Psicologia'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 59
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Nutricion'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 60
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Odontologia'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 61
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Audiologia'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 63
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Cirugía Cardiovascular'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 64
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Cirugía Bariátrica'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 65
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Cirugia Plastica'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 66
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Medico Experto RCV'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 68
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Neuropsicologia'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 69
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Radiologia'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 70
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Cirugia Hepatobiliar'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 71
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Cirugia Columna Vertebral'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 72
                     ]);
+                    break;
+                }
         }else if ($request->Especialidad == 'Cirugia Cabeza Y Cuello'){
+            switch ($request->tipoAgenda){
+                case "5":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores
+                    ]);
+                    break;
+                case "27":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "28":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "39":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "42":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "53":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "133":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "429":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "648":
+                        $atender->update([
+                            'Datetimeingreso'   => now(),
+                            'Estado_id'         => 8,
+                            'Tipocita_id'       => 3 // Procedimientos Menores
+                        ]);
+                        break;
+                case "443":
+                    $atender->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                    ]);
+                    break;
+                default:
                 $atender->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 73
                     ]);
+                    break;
+                }
         }else {
                 $atender->update([
                     'Datetimeingreso' => now(),
@@ -2455,6 +6644,7 @@ class HistoriaController extends Controller
     {
         $user = User::find(auth()->id());
         $rol =  $user->hasRole('Grupales RCV');
+        $rolOncologia =  $user->hasRole('Enfermeria Oncologia');
         if($rol == "Grupales RCV"){
             if($request->paciente != null){
                 $citaIndividual = Agenda::select('agendas.*',
@@ -2495,7 +6685,84 @@ class HistoriaController extends Controller
                     }
                 ])
                 ->get();
+                return response()->json($citaIndividual, 200);
+
+            }
+        }else if($rolOncologia == 'Enfermeria Oncologia'){
+                if($request->paciente != null){
+                    $citaIndividual = Agenda::select('agendas.*',
+                    'e.Nombre as Especialidad',
+                    's.Nombre as sede',
+                    'co.Nombre as consultorio',
+                    'ta.name as Tipo_agenda',
+                    )
+                    ->join('especialidade_tipoagenda as et','agendas.Especialidad_id', 'et.id')
+                    ->join('especialidades as e' , 'et.Especialidad_id' ,'e.id')
+                    ->join('tipo_agendas as ta','et.Tipoagenda_id','ta.id')
+                    ->join('consultorios as co','agendas.Consultorio_id','co.id')
+                    ->join('sedes as s','co.sede_id','s.id')
+                    ->join('estados as es', 'agendas.Estado_id', 'es.id')
+                    ->join('citas','citas.Agenda_id','agendas.id')
+                    ->join('cita_paciente as cp','cp.Cita_id','citas.id')
+                    ->leftjoin('pacientes as p','cp.Paciente_id', 'p.id')
+                    ->where('p.Num_Doc',$request->paciente)
+                    ->where('agendas.Fecha',now())
+                    ->whereIn('ta.id',[652])
+                    ->where('es.id',3)
+                    ->with([
+                        'citas'=>function($query) use ($request){
+                            $query->select('cp.id as cita_paciente_id','e.Nombre as Especialidad',
+                            'ta.name as Tipo_agenda','ta.id as tipoAgenda','cp.actividad_id','cp.especialidad_id',
+                            'citas.Agenda_id','citas.Hora_Inicio','p.id as paciente_id',DB::RAW("CONCAT(p.Primer_Nom,' ',p.SegundoNom,' ',p.Primer_Ape,' ',p.Segundo_Ape) as Nombre_Paciente"),
+                            'p.Primer_Nom', 'p.Correo1' , 'p.SegundoNom', 'p.Primer_Ape', 'p.Segundo_Ape', 'p.Sexo','et.marcacion',
+                            'p.Tipo_Doc', 'p.Num_Doc', 'p.Edad_Cumplida', 'es.Nombre as Estado','cp.Tipocita_id as Tipocita_id','cp.estado_id as CP_Estado_id')
+                            ->join('cita_paciente as cp','cp.Cita_id','citas.id')
+                            ->join('agendas as a','a.id','citas.Agenda_id')
+                            ->join('especialidade_tipoagenda as et','a.Especialidad_id', 'et.id')
+                            ->join('tipo_agendas as ta','et.Tipoagenda_id','ta.id')
+                            ->join('especialidades as e' , 'et.Especialidad_id' ,'e.id')
+                            ->leftjoin('pacientes as p','cp.Paciente_id', 'p.id')
+                            ->join('estados as es', 'cp.Estado_id', 'es.id')
+                            ->where('p.Num_Doc',$request->paciente)
+                            ->whereIn('es.id',[1,4,12,9,8]);
+                        }
+                    ])
+                    ->get();
+                    return response()->json($citaIndividual, 200);
+
             }else{
+                $citaIndividual = Agenda::select('agendas.*','e.Nombre as Especialidad','s.Nombre as sede','co.Nombre as consultorio','ta.name as Tipo_agenda')
+                ->join('especialidade_tipoagenda as et','agendas.Especialidad_id', 'et.id')
+                ->join('especialidades as e' , 'et.Especialidad_id' ,'e.id')
+                ->join('tipo_agendas as ta','et.Tipoagenda_id','ta.id')
+                ->join('consultorios as co','agendas.Consultorio_id','co.id')
+                ->join('sedes as s','co.sede_id','s.id')
+                ->join('estados as es', 'agendas.Estado_id', 'es.id')
+                ->where('agendas.Fecha',now())
+                ->whereIn('ta.id',[652])
+                ->where('es.id',3)
+                ->where('s.id',$request->sede)
+                ->with([
+                    'citas'=>function($query){
+                        $query->select('cp.id as cita_paciente_id','e.Nombre as Especialidad',
+                        'ta.name as Tipo_agenda','ta.id as tipoAgenda','cp.actividad_id','cp.especialidad_id',
+                        'citas.Agenda_id','citas.Hora_Inicio','p.id as paciente_id',DB::RAW("CONCAT(p.Primer_Nom,' ',p.SegundoNom,' ',p.Primer_Ape,' ',p.Segundo_Ape) as Nombre_Paciente"),
+                        'p.Primer_Nom', 'p.Correo1', 'p.SegundoNom', 'p.Primer_Ape', 'p.Segundo_Ape', 'p.Sexo','et.marcacion',
+                        'p.Tipo_Doc', 'p.Num_Doc', 'p.Edad_Cumplida', 'es.Nombre as Estado','cp.Tipocita_id as Tipocita_id','cp.estado_id as CP_Estado_id')
+                        ->join('cita_paciente as cp','cp.Cita_id','citas.id')
+                        ->join('agendas as a','a.id','citas.Agenda_id')
+                        ->join('especialidade_tipoagenda as et','a.Especialidad_id', 'et.id')
+                        ->join('tipo_agendas as ta','et.Tipoagenda_id','ta.id')
+                        ->join('especialidades as e' , 'et.Especialidad_id' ,'e.id')
+                        ->leftjoin('pacientes as p','cp.Paciente_id', 'p.id')
+                        ->join('estados as es', 'cp.Estado_id', 'es.id')
+                        ->whereIn('es.id',[1,4,12,9,8]);
+                    }
+                ])->get();
+                return response()->json($citaIndividual, 200);
+
+            }
+        }else{
                 $citaIndividual = Agenda::select('agendas.*','e.Nombre as Especialidad','s.Nombre as sede','co.Nombre as consultorio','ta.name as Tipo_agenda')
                 ->join('especialidade_tipoagenda as et','agendas.Especialidad_id', 'et.id')
                 ->join('especialidades as e' , 'et.Especialidad_id' ,'e.id')
@@ -2524,9 +6791,9 @@ class HistoriaController extends Controller
                         ->whereIn('es.id',[1,4,12,9,8]);
                     }
                 ])->get();
+                return response()->json($citaIndividual, 200);
+
             }
-        return response()->json($citaIndividual, 200);
-        }
     }
 
     public function citasOcupacionales(Request $request){
@@ -2855,29 +7122,297 @@ class HistoriaController extends Controller
         $tipoagenda = TipoAgenda::where('id', $request->actividad)->first();
 
         if ($especialidad->Nombre == 'Optometria') {
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
             $cita_paciente->update([
                 'Datetimeingreso' => now(),
                 'Estado_id' => 8,
                 'Tipocita_id' => 17
             ]);
+            break;
+        }
         }else if ($especialidad->Nombre == 'Oftalmologia') {
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
             $cita_paciente->update([
                 'Datetimeingreso' => now(),
                 'Estado_id' => 8,
                 'Tipocita_id' => 12
             ]);
+            break;
+        }
         }else if ($especialidad->Nombre == 'Oncologia') {
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
             $cita_paciente->update([
                 'Datetimeingreso' => now(),
                 'Estado_id' => 8,
                 'Tipocita_id' => 7
             ]);
+            break;
+        }
         }else if ($especialidad->Nombre == 'Quimica Farmacologica') {
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
             $cita_paciente->update([
                 'Datetimeingreso' => now(),
                 'Estado_id' => 8,
                 'Tipocita_id' => 18
             ]);
+            break;
+        }
         }else if ($especialidad->Nombre == 'Enfermeria Sede' || $especialidad->Nombre == 'Enfermeria'){
             switch ($tipoagenda->id){
                 case "5":
@@ -3175,257 +7710,3071 @@ class HistoriaController extends Controller
                     break;
             }
         }else if ($especialidad->Nombre == 'Medico Experto Salud Mental'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 19
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Medico Experto Reumatologia'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 20
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Medico Experto Anticoagulados'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 21
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Medico Experto Nefroproteccion'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 22
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Medico Experto Respiratorios'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 23
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Medico Experto Trasmisibles Cronicas'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 24
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Psiquiatria'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 25
                     ]);
+                    break;
+                }               
         }else if ($especialidad->Nombre == 'Neurologia'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 26
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Cardiologia'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 27
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Ginecologia'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 28
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Obstetricia'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 29
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Medicina Interna'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 30
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Anestesiologia'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 31
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Medicina Familiar'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 32
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Hematologia'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 33
-                    ]);
+                ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Nefrologia'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 34
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Otorrinolaringologia'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 35
                     ]);
-        }else if ($especialidad->Nombre == 'Ortopedia Y Traumatologia'){
+                    break;
+                }
+        }else if ($especialidad->Nombre == 'Ortopedia y Traumatologia'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 36
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Endocrinologia'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 37
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Cirugia Coloproctologica'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 38
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Cirugia General'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 39
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Pediatria'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 40
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Dermatologia'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 41
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Medicina Del Deporte'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 42
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Alergologia'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 43
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Mastologia'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 44
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Neumologia'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 45
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Medicina Del Dolor'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 46
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Toxicologia'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 47
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Fisiatria'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 48
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Urologia'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 49
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Medicina Alternativa'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 50
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Neurocirugia'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 51
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Infectologia'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 52
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Reumatologia'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 53
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Electrofisiologia'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 54
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Fonoaudiologia'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 55
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Terapia Respiratoria'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 56
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Fisioterapia'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 57
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Trabajo Social'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 58
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Psicologia'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 59
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Nutricion'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 60
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Odontologia'){
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
@@ -3433,65 +10782,735 @@ class HistoriaController extends Controller
                         'Tipocita_id'       => 61
                     ]);
         }else if ($especialidad->Nombre == 'Audiologia'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 63
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Cirugía Cardiovascular'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 64
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Cirugía Bariátrica'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 65
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Cirugia Plastica'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 66
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Medico Experto RCV'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 68
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Neuropsicologia'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 69
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Radiologia'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 70
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Cirugia Hepatobiliar'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 71
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Cirugia Columna Vertebral'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 72
                     ]);
+                    break;
+                }
         }else if ($especialidad->Nombre == 'Cirugia Cabeza Y Cuello'){
+            switch ($tipoagenda->id){
+                case "5":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (20 Min)
+                    ]);
+                break;
+                case "27":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (30 Min)
+                    ]);
+                break;
+                case "28":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (15 Min)
+                    ]);
+                break;
+                case "39":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (5 Min)
+                    ]);
+                break;
+                case "42":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (10 Min)
+                    ]);
+                break;
+                case "53":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (7 Min)
+                    ]);
+                break;
+                case "133":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (4 Min)
+                    ]);
+                break;
+                case "429":
+                    $cita_paciente->update([
+                        'Datetimeingreso'   => now(),
+                        'Estado_id'         => 8,
+                        'Tipocita_id'       => 3 // Procedimientos Menores (8 Min)
+                    ]);
+                break;
+            case "443":
+                $cita_paciente->update([
+                    'Datetimeingreso'   => now(),
+                    'Estado_id'         => 8,
+                    'Tipocita_id'       => 10 // Procedimientos Menores oncologico
+                ]);
+                break;
+            default:
                 $cita_paciente->update([
                         'Datetimeingreso'   => now(),
                         'Estado_id'         => 8,
                         'Tipocita_id'       => 73
                     ]);
+                    break;
+                }
         }else{
             $cita_paciente->update([
                 'Datetimeingreso'   => now(),
