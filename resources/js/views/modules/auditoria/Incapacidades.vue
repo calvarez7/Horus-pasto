@@ -14,8 +14,11 @@
                             <v-spacer></v-spacer>
                             <v-flex xs6 sm>
                                 <v-btn color="primary" round @click="find()">Buscar</v-btn>
-                                <v-btn @click="clearFields()" v-if="cedula" fab outline small color="error"><v-icon>clear</v-icon></v-btn>
-                                <v-btn color="warning" v-if="can('auditoria.incapacidad.excel')" dark round @click="getExcel()">Exportar Excel</v-btn>
+                                <v-btn @click="clearFields()" v-if="cedula" fab outline small color="error">
+                                    <v-icon>clear</v-icon>
+                                </v-btn>
+                                <v-btn color="warning" v-if="can('auditoria.incapacidad.excel')" dark round
+                                    @click="getExcel()">Exportar Excel</v-btn>
                             </v-flex>
                         </v-layout>
                     </v-container>
@@ -65,8 +68,8 @@
                                                         </v-text-field>
                                                     </v-flex>
                                                     <v-flex xs12 class="pr-5">
-                                                        <v-textarea v-if="inc.Estado_id == 26" v-model="inc.DesAnulado" label="Motivo de anulacion" outlined
-                                                                      readonly>
+                                                        <v-textarea v-if="inc.Estado_id == 26" v-model="inc.DesAnulado"
+                                                            label="Motivo de anulacion" outlined readonly>
                                                         </v-textarea>
                                                     </v-flex>
                                                 </v-layout>
@@ -189,8 +192,8 @@
                                     <v-card-text>
                                         <v-layout row wrap>
                                             <v-flex xs10>
-                                                <v-text-field v-model="Email" :rules="emailRules" prepend-icon="mail"
-                                                    label="Email"></v-text-field>
+                                                <v-text-field v-model="Email" prepend-icon="mail" label="Email">
+                                                </v-text-field>
                                             </v-flex>
                                         </v-layout>
                                     </v-card-text>
@@ -512,15 +515,29 @@
 
             },
             getExcel() {
-                axios
-                    .get("/api/incapacidad/AllExcel")
-                    .then(res => {
-                        let data = XLSX.utils.json_to_sheet(res.data);
-                        const workbook = XLSX.utils.book_new();
-                        const filename = "Incapacidades";
-                        XLSX.utils.book_append_sheet(workbook, data, filename);
-                        XLSX.writeFile(workbook, `${filename}.xlsx`);
+                this.preload_incapacidades = true
+                axios({
+                    method: 'post',
+                    url: '/api/incapacidad/AllExcel',
+                    responseType: 'blob'
+                }).then(res => {
+                    let blob = new Blob([res.data], {
+                        type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
                     });
+                    let url = window.URL.createObjectURL(blob);
+                    let a = document.createElement('a');
+
+                    a.download = `incapacidades.xlsx`;
+                    a.href = url;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    this.preload_incapacidades = false
+
+                }).catch(err => {
+                    this.preload_incapacidades = false
+                    this.showMessage('No hay data')
+                })
             }
         }
     };

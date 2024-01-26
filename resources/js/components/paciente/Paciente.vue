@@ -317,6 +317,22 @@
             >
             </v-select>
           </v-flex>
+          <v-flex xs12 sm6 md4 v-show="idShow.Nombreresponsable">
+            <v-text-field
+              v-model="paciente.Nombreresponsable"
+              label="Nombre del Responsable"
+            >
+            </v-text-field>
+          </v-flex>
+          <v-flex xs12 sm6 md4 v-show="idShow.Telefonoresponsable">
+            <v-text-field
+              v-model="paciente.Telefonoresponsable"
+              label="Teléfono del Responsable"
+              type="number"
+              maxlength="12"
+            >
+            </v-text-field>
+          </v-flex>
           <v-flex xs12 sm6 md3>
             <v-select
               v-model="paciente.Discapacidad"
@@ -656,6 +672,8 @@ export default {
         religion: true,
         Nombreacompanante: true,
         Telefonoacompanante: true,
+        Nombreresponsable:true,
+        Telefonoresponsable: true,
         Parentesco: true,
         nombre_pareja: true,
         pareja_actual_padre: true,
