@@ -29,7 +29,47 @@ class UserTableSeeder extends Seeder
                 'especialidad_medico' => 'TECNOLOGO PROGRAMADOR',
                 'prestador_id' => null,
                 'sede_id' => null,
-                'email' => 'david@domicilios.com',
+                'email' => 'julian.cardona@sumimedical.com',
+                'password' => bcrypt(123456789)
+            ],
+
+            [
+                'name' => 'Erik',
+                'apellido' => 'Giraldo',
+                'direccion' => '123',
+                'celular' => '123',
+                'fecha_naci' => '01/01/1990',
+                'cedula' => '123',
+                'nit' => '123',
+                'telefono' => '123',
+                'estado_user' => 1,
+                'avatar' => '123',
+                'Firma' => '',
+                'Registromedico' => '',
+                'especialidad_medico' => 'TECNOLOGO PROGRAMADOR',
+                'prestador_id' => null,
+                'sede_id' => null,
+                'email' => 'erik.giraldo@sumimedical.com',
+                'password' => bcrypt(123456789)
+            ],
+
+            [
+                'name' => 'Julian',
+                'apellido' => 'Cardona',
+                'direccion' => '123',
+                'celular' => '123',
+                'fecha_naci' => '01/01/1990',
+                'cedula' => '123',
+                'nit' => '123',
+                'telefono' => '123',
+                'estado_user' => 1,
+                'avatar' => '123',
+                'Firma' => '',
+                'Registromedico' => '',
+                'especialidad_medico' => 'TECNOLOGO PROGRAMADOR',
+                'prestador_id' => null,
+                'sede_id' => null,
+                'email' => 'cristian.alvarez@sumimedical.com',
                 'password' => bcrypt(123456789)
             ]
         ];
