@@ -20,3 +20,4 @@ package.json
 package-lock.json
 /public/tempimg.png
 package-lock.json
+.DS_Store

@@ -15,7 +15,7 @@
 </script>
 <style>
     #imglogin {
-        background-image: url('/storage/images/imglogin.png');
+        background-image: url('/storage/images/dia-doctor-lindo-joven-apuesto-bata-laboratorio-gafas-sonriendo-sosteniendo-libro.jpg');
         background-size: cover
     }
 

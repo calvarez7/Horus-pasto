@@ -123,8 +123,7 @@
                                                 <v-flex xs1>
                                                     <v-tooltip bottom>
                                                         <template v-slot:activator="{ on }">
-                                                            <v-btn v-on="on" color="success" fab small dark
-                                                                @click="savePermission(permiso)">
+                                                            <v-btn v-on="on" color="success" fab small dark @click="savePermission(permiso)">
                                                                 <v-icon>add</v-icon>
                                                             </v-btn>
                                                         </template>
@@ -149,7 +148,7 @@
                                                     <v-text-field v-model="searchPermission" append-icon="search"
                                                         label="Search" single-line hide-details></v-text-field>
                                                 </v-card-title>
-                                                <v-data-table class="elevation-1" v-model="selected" select-all
+                                                <v-data-table class="elevation-1" v-model="selected" select-all dense
                                                     :headers="headersPermission" :items="userPermissions"
                                                     :search="searchPermission">
                                                     <template v-slot:items="props">
