@@ -610,13 +610,14 @@
                 }
             },
             editUser(row) {
-                this.fetchPrestadores();
+                //this.fetchPrestadores();
                 this.data = {
                     id: row.id,
                     name: row.name,
                     apellido: row.apellido,
                     nit: row.nit,
                     Registromedico: row.Registromedico,
+                    entidad_id: parseInt(row.entidad_id),
                     especialidad_medico: row.especialidad_medico,
                     cedula: row.cedula,
                     email: row.email,

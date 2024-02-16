@@ -159,7 +159,7 @@
 </script>
 <style>
     #img {
-        background-image: url('/storage/images/dia-doctor-lindo-joven-apuesto-bata-laboratorio-gafas-sonriendo-sosteniendo-libro.jpg');
+        background-image: url('/storage/images/home.jpg');
         background-size: cover;
         background-repeat: round;
     }
