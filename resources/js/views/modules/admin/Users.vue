@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import TableUser from '../../../components/user/TableUser'
+import TableUser from '../../../components/user/TableUser.vue'
 export default {
     components:{
         TableUser,

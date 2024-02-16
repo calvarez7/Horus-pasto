@@ -36,7 +36,8 @@
                                             </v-text-field>
                                         </v-flex>
                                         <v-flex xs12 sm12 md12>
-                                            <v-autocomplete v-model="data.prestador_id" :items="prestadores" item-value="id" item-text="Nombre" label="Prestador"></v-autocomplete>
+                                            <v-autocomplete v-model="data.entidad_id" :items="entidades"
+                                                item-value="id" item-text="nombre" label="Entidad a la que pertece el usuario"></v-autocomplete>
                                         </v-flex>
                                         <v-flex xs12>
                                             <v-checkbox v-model="contrasena" color="red" label="Cambiar Contraseña">
@@ -52,8 +53,9 @@
                                             </v-text-field>
                                         </v-flex>
                                         <v-flex xs12>
-                                            <v-autocomplete :items="allCargos" item-text="nombre" label="Especialidad Medica*"
-                                                v-model="data.especialidad_medico" required>
+                                            <v-autocomplete :items="allCargos" item-text="nombre"
+                                                label="Especialidad Medica*" v-model="data.especialidad_medico"
+                                                required>
                                             </v-autocomplete>
                                         </v-flex>
                                         <v-flex xs12 sm12>
@@ -123,7 +125,8 @@
                                                 <v-flex xs1>
                                                     <v-tooltip bottom>
                                                         <template v-slot:activator="{ on }">
-                                                            <v-btn v-on="on" color="success" fab small dark @click="savePermission(permiso)">
+                                                            <v-btn v-on="on" color="success" fab small dark
+                                                                @click="savePermission(permiso)">
                                                                 <v-icon>add</v-icon>
                                                             </v-btn>
                                                         </template>
@@ -289,10 +292,10 @@
                 </v-layout>
             </v-container>
             <v-card-title>
-                <v-btn v-if="can('usuarios.crear')" round color="primary" @click="createUser()" dark>
+                <v-btn v-if="can('usuarios.crear')" round color="primary" @click="createUser()" small dark>
                     <v-icon left>person_add</v-icon>Crear usuario
                 </v-btn>
-                <v-btn v-if="can('usuarios.crear')" round color="warning" @click="especialidadCargo = true" dark>
+                <v-btn v-if="can('usuarios.crear')" round color="warning" small @click="especialidadCargo = true" dark>
                     <v-icon left>person_add</v-icon>Crear Especialidad (cargo)
                 </v-btn>
                 <v-spacer></v-spacer>
@@ -301,7 +304,7 @@
                     </v-text-field>
                 </v-flex>
             </v-card-title>
-            <v-data-table class="mx-2" :headers="headers" :items="users" :search="search">
+            <v-data-table :headers="headers" dense :items="users" :search="search">
                 <template v-slot:items="props">
                     <td>{{ props.item.id }}</td>
                     <td class="text-xs-right">{{ props.item.name }}</td>
@@ -401,7 +404,8 @@
     export default {
         data() {
             return {
-                prestadores:[],
+                entidades: [],
+                prestadores: [],
                 especialidad: {
                     nombre: ''
                 },
@@ -489,7 +493,8 @@
                     password: '',
                     password_confirmation: '',
                     roles: null,
-                    prestador_id: null
+                    prestador_id: null,
+                    entidad_id: ''
                 },
                 roles: null,
                 nit: ['CC', 'CE', 'NIT', 'PA'],
@@ -530,12 +535,19 @@
         computed: {
             ...mapGetters(['can'])
         },
-        mounted() {
+        created() {
             this.fetchUsers();
             this.fetchRoles();
-            this.allEspecialidades()
+            this.allEspecialidades();
+            this.entidadesActiva()
         },
         methods: {
+            entidadesActiva(){
+                axios.get('/api/entidades/getEntidades').then(res => {
+                    this.entidades = res.data;
+                    console.log('entidades', res.data);
+                });
+            },
             onFilePicked() {
                 this.data.firma = this.$refs.mysignature.files[0];
             },
@@ -870,7 +882,7 @@
                 }
             },
 
-            cerrarModal(){
+            cerrarModal() {
                 this.clearError()
                 this.especialidadCargo = false
             },

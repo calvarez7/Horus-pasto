@@ -889,7 +889,9 @@ class EntidadController extends Controller
     }
 
     public function getEntidades(){
-        $entidades = Entidade::all();
+        $entidades = Entidade::where('estado_id', 1)->get(['id', 'nombre', 'agendar_paciente', 'entrega_medicamentos', 
+                                                            'atender_paciente', 'autorizar_ordenes', 'consutar_historico', 
+                                                        'generar_ordenes', 'salud_ocupacional', 'contrato']);
         return response()->json($entidades);
     }
 

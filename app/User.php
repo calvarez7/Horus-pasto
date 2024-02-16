@@ -22,7 +22,7 @@ class User extends Authenticatable
 
     protected $fillable = [
         'name', 'apellido', 'direccion', 'departamento_id', 'celular', 'fecha_naci', 'cedula', 'nit', 'telefono', 'email', 'password', 'avatar',
-        'Firma', 'Registromedico', 'estado_user', 'avatar_url', 'especialidad_medico','prestador_id'
+        'Firma', 'Registromedico', 'estado_user', 'avatar_url', 'especialidad_medico','prestador_id', 'entidad_id'
     ];
 
     protected $hidden = [

@@ -275,7 +275,7 @@
                         title: 'Módulo Fias',
                         icon: 'mdi-cloud-print',
                         ruta: '/fias',
-                        can: 'rips.entrar'
+                        can: 'fias.entrar'
                     },
                     {
                         title: 'Módulo Cuentas Medicas',
