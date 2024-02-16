@@ -142,6 +142,7 @@ class RipController extends Controller
             $paqueteRip->Reps_id = $sedePrestador->id;
             $paqueteRip->estado_id = 53;
             $paqueteRip->User_id = auth()->user()->id;
+            $paqueteRip->entidad_id = $request->entidad;
             $paqueteRip->save();
         }
 
