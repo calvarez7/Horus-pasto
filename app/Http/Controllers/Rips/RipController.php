@@ -94,7 +94,7 @@ class RipController extends Controller
             ], 400);
         }
         $entidad = null;
-        switch(intval($request->entidad)){
+        switch (intval($request->entidad)) {
             case 1:
                 $entidad = "RES004";
                 break;
@@ -106,25 +106,25 @@ class RipController extends Controller
                 break;
         }
         $paqueteRip = new PaqRip();
-        $sedePrestador = Sedeproveedore::where('Codigo',$this->CT['content'][0][0])->first();
-        $paqueteRechazado = PaqRip::where("Nombre",substr($this->CT['fileName'],2))->where('Reps_id', $sedePrestador->id)->where('mes',date('m'))->where('anio',date('Y'))->whereIn('estado_id',[54,56])->first();
+        $sedePrestador = Sedeproveedore::where('Codigo', $this->CT['content'][0][0])->first();
+        $paqueteRechazado = PaqRip::where("Nombre", substr($this->CT['fileName'], 2))->where('Reps_id', $sedePrestador->id)->where('mes', date('m'))->where('anio', date('Y'))->whereIn('estado_id', [54, 56])->first();
 
-        if($paqueteRechazado){
+        if ($paqueteRechazado) {
             $paqueteRechazado->User_id = auth()->user()->id;
             $paqueteRechazado->entidad = $entidad;
             $paqueteRechazado->save();
             $paqueteRip = $paqueteRechazado;
-            RipsErrores::where('paq_rip_id',$paqueteRip->id)->delete();
-            $path = storage_path("app/public/temporalesrips/".$paqueteRip->id);
-            if(file_exists($path)){
-                foreach (scandir($path) as $file){
+            RipsErrores::where('paq_rip_id', $paqueteRip->id)->delete();
+            $path = storage_path("app/public/temporalesrips/" . $paqueteRip->id);
+            if (file_exists($path)) {
+                foreach (scandir($path) as $file) {
                     if ($file !== '.' && $file !== '..') {
-                        unlink($path.'/'.$file);
+                        unlink($path . '/' . $file);
                     }
                 }
             }
-        }else{
-            $paqueteRip->Nombre = substr($this->CT['fileName'],2);
+        } else {
+            $paqueteRip->Nombre = substr($this->CT['fileName'], 2);
             $paqueteRip->nombre_rep = $sedePrestador->Nombre;
             $paqueteRip->codigo = $sedePrestador->Codigo;
             $paqueteRip->ac_size = $this->AC['size'] ?? null;
@@ -147,7 +147,7 @@ class RipController extends Controller
         }
 
         IntentosCargueRip::create([
-            'nombre_paquete' => substr($this->CT['fileName'],2),
+            'nombre_paquete' => substr($this->CT['fileName'], 2),
             'codigo' => $sedePrestador->Codigo,
             'user_id' => auth()->user()->id
         ]);
@@ -156,8 +156,8 @@ class RipController extends Controller
             $files = $request->file('files');
             foreach ($files as $file) {
                 $file_name = $file->getClientOriginalName();
-                $path = storage_path('app/public/temporalesrips/'.$paqueteRip->id);
-                $file->move($path,$file_name);
+                $path = storage_path('app/public/temporalesrips/' . $paqueteRip->id);
+                $file->move($path, $file_name);
             }
         }
         broadcast(new EventEstadoRips());
@@ -213,15 +213,15 @@ class RipController extends Controller
     private function checkRequiredFiles()
     {
         $configuraciones = $this->autorizacionPeriodoRips();
-        if(!$configuraciones['enabled']){
-            $msg = 'La radicación solo es funcional en los dias '.$configuraciones['ini_day'] .' al '.$configuraciones['fin_day'] .' de cada mes.';
+        if (!$configuraciones['enabled']) {
+            $msg = 'La Radicacion de las facturas aplica del 01 al 10 de cada mes de lunes a viernes de 7 am a 5pm. Se reciben facturas hasta el último día hábil de la fecha del cierre de radicación, es decir, si el 10 cae sábado, domingo o días festivo la fecha límite de recepción será el viernes hasta las 5 pm.';
             $this->pushErrorMessage($msg);
         }
         if (count($this->item) < 3) {
             $msg = 'Para la validación RIPS se deben cargar minimo 3 archivos';
             $this->pushErrorMessage($msg);
         }
-        if(!isset($this->AF['content'])){
+        if (!isset($this->AF['content'])) {
             $msg = 'El archivo AF es requerido. (Error A)';
             $this->pushErrorMessage($msg);
         }
@@ -309,30 +309,30 @@ class RipController extends Controller
             }
         }
 
-        $reps = Sedeproveedore::where('Codigo',$this->CT['content'][0][0])->first();
-        if($reps) {
-            $cargueReps = PaqRip::where('Reps_id', $reps->id)->whereIn('estado_id', [53,55,54,56,57])->first();
+        $reps = Sedeproveedore::where('Codigo', $this->CT['content'][0][0])->first();
+        if ($reps) {
+            $cargueReps = PaqRip::where('Reps_id', $reps->id)->whereIn('estado_id', [53, 55, 54, 56, 57])->first();
             if ($cargueReps) {
-                if($cargueReps->Nombre != substr($this->CT['fileName'], 2)){
+                if ($cargueReps->Nombre != substr($this->CT['fileName'], 2)) {
                     $this->pushErrorMessage('El prestador tiene un cargue pendiente por definir.');
                 }
             }
 
-            $packages = PaqRip::where('Nombre',substr($this->CT['fileName'], 2))->where('Reps_id', $reps->id)->where('mes', date('m'))->where('anio', date('Y'))->whereIn('estado_id', [7, 4])->first();
+            $packages = PaqRip::where('Nombre', substr($this->CT['fileName'], 2))->where('Reps_id', $reps->id)->where('mes', date('m'))->where('anio', date('Y'))->whereIn('estado_id', [7, 4])->first();
             if ($packages) {
                 $this->pushErrorMessage('El codigo del paquete "' . substr($this->CT['fileName'], 2) . '" ya esta radicado con el mismo prestador.');
             }
 
-            $paqueteProceso = PaqRip::where("Nombre",substr($this->CT['fileName'],2))->where('Reps_id', $reps->id)->where('mes', date('m'))->where('anio', date('Y'))->whereIn('estado_id', [53, 55])->first();
+            $paqueteProceso = PaqRip::where("Nombre", substr($this->CT['fileName'], 2))->where('Reps_id', $reps->id)->where('mes', date('m'))->where('anio', date('Y'))->whereIn('estado_id', [53, 55])->first();
             if ($paqueteProceso) {
                 $this->pushErrorMessage('El codigo del paquete "' . substr($this->CT['fileName'], 2) . '" esta en un proceso de validacion');
             }
 
-            $paqueteError = PaqRip::where("Nombre",substr($this->CT['fileName'],2))->where('Reps_id', $reps->id)->where('mes', date('m'))->where('anio', date('Y'))->where('estado_id', 57)->first();
+            $paqueteError = PaqRip::where("Nombre", substr($this->CT['fileName'], 2))->where('Reps_id', $reps->id)->where('mes', date('m'))->where('anio', date('Y'))->where('estado_id', 57)->first();
             if ($paqueteError) {
                 $this->pushErrorMessage('El sistema encontro un error inesperado en la validación, comuníquese con el area de desarrollo para su solucion');
             }
-        }else{
+        } else {
             $this->pushErrorMessage('El prestador del Archivo CT no registra en la base de datos.');
         }
     }
@@ -342,27 +342,29 @@ class RipController extends Controller
         $this->errorMessages[] = ['linea' => '', 'tipo_archivo' => '', 'mensaje' => $msg];
     }
 
-    public function enProcesoValidacion(){
+    public function enProcesoValidacion()
+    {
         return response()->json(
-            PaqRip::where('user_id',auth()->user()->id)
-                ->whereIn('estado_id',[53,54,55,56,57])->get()
+            PaqRip::where('user_id', auth()->user()->id)
+                ->whereIn('estado_id', [53, 54, 55, 56, 57])->get()
         );
     }
 
-    public function descargarErrores($id){
+    public function descargarErrores($id)
+    {
         $errores = collect(RipsErrores::select(
             'archivo',
             'mensaje',
             'lineas'
         )
-            ->where('paq_rip_id',$id)
+            ->where('paq_rip_id', $id)
             ->get()->toArray());
         return (new FastExcel($errores))->download('file.xls');
     }
 
     public function getRadicados(Request $request)
     {
-        if(auth()->user()->can('rips.pendientes.verTodos') || auth()->user()->can('dev')) {
+        if (auth()->user()->can('rips.pendientes.verTodos') || auth()->user()->can('dev')) {
             $query = PaqRip::select([
                 'paq_rips.id',
                 'paq_rips.Nombre',
@@ -376,20 +378,20 @@ class RipController extends Controller
                 'paq_rips.updated_at',
                 DB::raw('SUM(valor_Neto) as valor')
             ])->with(['afs'])
-                ->join('sedeproveedores as s','s.id','paq_rips.Reps_id')
-                ->join('prestadores as p','p.id','s.Prestador_id')
-                ->join('afs as a','a.paq_id','paq_rips.id')
+                ->join('sedeproveedores as s', 's.id', 'paq_rips.Reps_id')
+                ->join('prestadores as p', 'p.id', 's.Prestador_id')
+                ->join('afs as a', 'a.paq_id', 'paq_rips.id')
                 ->whereNotNull('paq_rips.estado_id')
-                ->where('paq_rips.created_at','>=',$request->fechaDesde." 00:00:00.000")
-                ->where('paq_rips.created_at','<=',$request->fechaHasta." 23:59:00.000");
-                if(isset($request->prestadorId)){
-                    $sedePrestador = Sedeproveedore::where('Prestador_id',$request->prestadorId)->get()->toArray();
-                    $query->whereIn('paq_rips.Reps_id',$sedePrestador);
-                }
-                $query->groupBy(DB::raw('CAST(paq_rips.motivo AS NVARCHAR(100))'),'paq_rips.updated_at','paq_rips.id','paq_rips.Nombre','s.Nombre','paq_rips.estado_id','paq_rips.partial','p.Nit','s.Codigo_habilitacion','paq_rips.created_at')
+                ->where('paq_rips.created_at', '>=', $request->fechaDesde . " 00:00:00.000")
+                ->where('paq_rips.created_at', '<=', $request->fechaHasta . " 23:59:00.000");
+            if (isset($request->prestadorId)) {
+                $sedePrestador = Sedeproveedore::where('Prestador_id', $request->prestadorId)->get()->toArray();
+                $query->whereIn('paq_rips.Reps_id', $sedePrestador);
+            }
+            $query->groupBy(DB::raw('CAST(paq_rips.motivo AS NVARCHAR(100))'), 'paq_rips.updated_at', 'paq_rips.id', 'paq_rips.Nombre', 's.Nombre', 'paq_rips.estado_id', 'paq_rips.partial', 'p.Nit', 's.Codigo_habilitacion', 'paq_rips.created_at')
                 ->distinct();
             $rips = $query->get();
-        }else{
+        } else {
             $rips = PaqRip::select([
                 'paq_rips.id',
                 'paq_rips.Nombre',
@@ -403,14 +405,14 @@ class RipController extends Controller
                 'paq_rips.updated_at',
                 DB::raw('SUM(valor_Neto) as valor')
             ])->with(['afs'])
-                ->join('sedeproveedores as s','s.id','paq_rips.Reps_id')
-                ->join('prestadores as p','p.id','s.Prestador_id')
-                ->join('afs as a','a.paq_id','paq_rips.id')
+                ->join('sedeproveedores as s', 's.id', 'paq_rips.Reps_id')
+                ->join('prestadores as p', 'p.id', 's.Prestador_id')
+                ->join('afs as a', 'a.paq_id', 'paq_rips.id')
                 ->where('paq_rips.User_id', auth()->user()->id)
-                ->where('paq_rips.created_at','>=',$request->fechaDesde)
-                ->where('paq_rips.created_at','<=',$request->fechaHasta)
+                ->where('paq_rips.created_at', '>=', $request->fechaDesde)
+                ->where('paq_rips.created_at', '<=', $request->fechaHasta)
                 ->whereNotNull('paq_rips.estado_id')
-                ->groupBy(DB::raw('CAST(paq_rips.motivo AS NVARCHAR(100))'),'paq_rips.updated_at','paq_rips.id','paq_rips.Nombre','s.Nombre','paq_rips.estado_id','paq_rips.partial','p.Nit','s.Codigo_habilitacion','paq_rips.created_at')
+                ->groupBy(DB::raw('CAST(paq_rips.motivo AS NVARCHAR(100))'), 'paq_rips.updated_at', 'paq_rips.id', 'paq_rips.Nombre', 's.Nombre', 'paq_rips.estado_id', 'paq_rips.partial', 'p.Nit', 's.Codigo_habilitacion', 'paq_rips.created_at')
                 ->distinct()
                 ->get();
         }
@@ -418,28 +420,30 @@ class RipController extends Controller
     }
 
 
-    public function aceptarRips($id){
-        PaqRip::where('id',$id)
-            ->update(['estado_id'=>7]);
-        return response()->json(['message'=> 'RIPS aceptado con exito']);
+    public function aceptarRips($id)
+    {
+        PaqRip::where('id', $id)
+            ->update(['estado_id' => 7]);
+        return response()->json(['message' => 'RIPS aceptado con exito']);
     }
 
-    public function rechazarRips($id,Request $request){
-        PaqRip::where('id',$id)
-            ->update(['estado_id'=>6,'motivo'=> $request->motivo]);
-        return response()->json(['message'=> 'RIPS rechazado con exito']);
+    public function rechazarRips($id, Request $request)
+    {
+        PaqRip::where('id', $id)
+            ->update(['estado_id' => 6, 'motivo' => $request->motivo]);
+        return response()->json(['message' => 'RIPS rechazado con exito']);
     }
 
     public function reporteRips(Request $request)
     {
-        $appointments = Collect(DB::select("exec dbo.RIPS ?,?,?", [$request->startDate,$request->finishDate,$request->financiero]));
+        $appointments = Collect(DB::select("exec dbo.RIPS ?,?,?", [$request->startDate, $request->finishDate, $request->financiero]));
         $array = json_decode($appointments, true);
         return (new FastExcel($array))->download('file.xls');
     }
 
     public function ripsHorus(Request $request)
     {
-        $appointments = Collect(DB::select("exec dbo.RipsHorus ?,?,?", [$request->archivo12,$request->startDate1,$request->finishDate1]));
+        $appointments = Collect(DB::select("exec dbo.RipsHorus ?,?,?", [$request->archivo12, $request->startDate1, $request->finishDate1]));
         $array = json_decode($appointments, true);
         return (new FastExcel($array))->download('file.xls');
     }
@@ -447,27 +451,28 @@ class RipController extends Controller
     public function consolidadoRips(Request $request)
     {
         set_time_limit(300);
-        ini_set('max_execution_time',300);
-        ini_set('memory_limit','-1');
-        if($request->archivos1 === 'CT'){
+        ini_set('max_execution_time', 300);
+        ini_set('memory_limit', '-1');
+        if ($request->archivos1 === 'CT') {
             $archivos = ['AF', 'AT', 'AC', 'AP', 'AU', 'AN', 'AM', 'AH', 'US'];
             $txt = "";
-            foreach ($archivos as $archivo){
-                $consulta = json_decode(Collect(DB::select("exec dbo.Consolidado ?,?,?,?", [$archivo,$request->fechainicio.' 00:00:00.000',$request->fechafin.' 23:59:00.000',$request->consolidado])), true);
-                $reps = array_unique(array_column($consulta,'prestador'));
-                if(count($consulta) > 0){
-                    $txt .= implode("|",$reps).",".date("d/m/Y", strtotime($request->fechainicio)).",".$archivo.date("mY", strtotime($request->fechainicio)).",".count($consulta)."\r".PHP_EOL;
+            foreach ($archivos as $archivo) {
+                $consulta = json_decode(Collect(DB::select("exec dbo.Consolidado ?,?,?,?", [$archivo, $request->fechainicio . ' 00:00:00.000', $request->fechafin . ' 23:59:00.000', $request->consolidado])), true);
+                $reps = array_unique(array_column($consulta, 'prestador'));
+                if (count($consulta) > 0) {
+                    $txt .= implode("|", $reps) . "," . date("d/m/Y", strtotime($request->fechainicio)) . "," . $archivo . date("mY", strtotime($request->fechainicio)) . "," . count($consulta) . "\r" . PHP_EOL;
                 }
             }
             return Response()->make($txt);
         }
 
-        $appointments = Collect(DB::select("exec dbo.Consolidado ?,?,?,?", [$request->archivos1,$request->fechainicio,$request->fechafin,$request->consolidado]));
+        $appointments = Collect(DB::select("exec dbo.Consolidado ?,?,?,?", [$request->archivos1, $request->fechainicio, $request->fechafin, $request->consolidado]));
         $array = json_decode($appointments, true);
         return (new FastExcel($array))->download('file.xls');
     }
 
-    public function autorizacionPeriodoRips(){
+    public function autorizacionPeriodoRips()
+    {
         $day = intval(date('d'));
         $settings = Configuracion::find(1);
         $enable = false;
@@ -493,8 +498,9 @@ class RipController extends Controller
      * @return File
      * @author David Peláez
      */
-    public function descargar(Request $request){
-        try{
+    public function descargar(Request $request)
+    {
+        try {
             /** Cerramos tiempo de memoria y de tiempo */
             ini_set('memory_limit', '-1');
             set_time_limit(3000000);
@@ -505,28 +511,29 @@ class RipController extends Controller
             $consulta = $instancia->consultar($request);
             /** Retorno de consulta */
             return response()->json($consulta);
-        }catch(\Throwable $th){
+        } catch (\Throwable $th) {
             return response()->json($th->getMessage(), Response::HTTP_BAD_REQUEST);
         }
     }
 
-    public function eliminarProcesoValidacion(PaqRip $paqRip){
+    public function eliminarProcesoValidacion(PaqRip $paqRip)
+    {
         try {
 
-            $path = storage_path("app/public/temporalesrips/".$paqRip->id);
-            if(file_exists($path)){
-                foreach (scandir($path) as $file){
-                 if ($file !== '.' && $file !== '..') {
-                    unlink($path.'/'.$file);
+            $path = storage_path("app/public/temporalesrips/" . $paqRip->id);
+            if (file_exists($path)) {
+                foreach (scandir($path) as $file) {
+                    if ($file !== '.' && $file !== '..') {
+                        unlink($path . '/' . $file);
                     }
                 }
                 rmdir($path);
             }
-            RipsErrores::where('paq_rip_id',$paqRip->id)->delete();
+            RipsErrores::where('paq_rip_id', $paqRip->id)->delete();
             $paqRip->delete();
             return response()->json(["message" => "Registro eliminado con exito"]);
-        }catch (\Exception $e){
-            return response()->json(["message" => "Ocurrio un error al eliminar el registro, por favor comuniquese con soporte para su corrección"],500);
+        } catch (\Exception $e) {
+            return response()->json(["message" => "Ocurrio un error al eliminar el registro, por favor comuniquese con soporte para su corrección"], 500);
         }
     }
 
@@ -543,7 +550,4 @@ class RipController extends Controller
             ->update(['estado_id' => 4, 'motivo' => null]);
         return response()->json(['message' => 'RIPS en pendiente']);
     }
-
 }
-
-

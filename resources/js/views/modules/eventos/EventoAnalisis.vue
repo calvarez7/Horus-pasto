@@ -2712,6 +2712,7 @@ export default {
                 "Diagnóstico cardiovascular",
                 "Imagenología",
                 "Vacunación",
+                "Consulta Externa"
             ],
             protocolo_londres: false,
             respuesta_inmediata: false,
