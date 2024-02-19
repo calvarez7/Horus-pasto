@@ -158,7 +158,6 @@ class RipController extends Controller
                 $file_name = $file->getClientOriginalName();
                 $path = storage_path('app/public/temporalesrips/'.$paqueteRip->id);
                 $file->move($path,$file_name);
-                chmod($path,0777);
             }
         }
         broadcast(new EventEstadoRips());

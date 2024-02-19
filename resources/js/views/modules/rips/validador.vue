@@ -56,7 +56,7 @@
                                 <template v-slot:items="props">
                                     <td class="text-xs-center">{{ props.item.Nombre }}</td>
                                     <td class="text-xs-center">{{ props.item.codigo }}</td>
-                                    <td class="text-xs-center">{{ props.item.update }}</td>
+                                    <td class="text-xs-center">{{ props.item.updated_at }}</td>
                                     <td class="text-xs-center"><v-chip :color="colorEstado(props.item.estado_id)" text-color="white">{{ props.item.estado.Nombre }}</v-chip>
                                         <v-tooltip bottom>
                                             <template v-slot:activator="{ on }">
