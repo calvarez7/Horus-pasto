@@ -11,7 +11,7 @@ class Sede extends Model
         return $date->format('Y-m-d H:i:s');
     }
     
-    protected $fillable = ['Nombre', 'Direccion', 'Telefono', 'Nit', 'Municipio_id'];
+    protected $fillable = ['Nombre', 'Direccion', 'Telefono', 'Nit', 'Municipio_id','entidad_id','Sedeprestador_id'];
 
     public function consultorio()
     {

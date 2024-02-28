@@ -12,7 +12,21 @@ class SedeController extends Controller
 {
     public function all()
     {
-        $sede = Sede::all();
+        $sede = Sede::select(
+            'municipios.id as Municipio_id',
+            'municipios.Nombre as nombre_municipio',
+            'sedes.id',
+            'sedes.Nombre',
+            'sedes.Direccion',
+            'sedes.Telefono',
+            'sedes.Nit',
+            'sedes.Estado_id',
+            'sedes.Sedeprestador_id',
+            'estados.nombre as estados')
+        ->join('municipios','municipios.id','sedes.Municipio_id')
+        ->join('estados','estados.id','sedes.Estado_id')
+        ->where('entidad_id',auth()->user()->entidad_id)
+        ->get();
         return response()->json($sede, 200);
     }
 
@@ -23,12 +37,14 @@ class SedeController extends Controller
             'Direccion' => 'required|string|max:70',
             'Telefono'  => 'required|string|max:50',
             'Nit'       => 'required|string|max:50',
+            'Sedeprestador_id' => 'required|integer',
         ]);
         if ($validate->fails()) {
             $errores = $validate->errors();
             return response()->json($errores, 422);
         }
         $input = $request->all();
+        $input['entidad_id'] = auth()->user()->entidad_id;
         $sede  = Sede::create($input);
         return response()->json([
             'message' => 'Sede Creada con Exito!',
