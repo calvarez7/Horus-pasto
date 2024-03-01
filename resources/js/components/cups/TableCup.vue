@@ -1,6 +1,5 @@
 <template>
     <div>
-
         <v-dialog v-model="importFile" max-width="800px">
             <v-card>
                 <v-card-title>
@@ -440,8 +439,9 @@
         },
         methods: {
             fetchCups() {
+                this.preload= true
                 axios.get('/api/cups/all')
-                    .then(res => this.cups = res.data);
+                    .then(res => this.cups = res.data, this.preload= false);
             },
             fetchFamilia() {
                 axios.get('/api/familia/all')
