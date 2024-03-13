@@ -12,7 +12,7 @@ class Referencia extends Model
         return $date->format('Y-m-d H:i:s');
     }
 
-    protected $fillable = ['id_paci', 'id_prestador', 'tipo_anexo', 'Especialidad_remi', 'adjunto', 'state', 'rzeuz', 'tipo_solicitud', 'estadoconcurrencia_id'];
+    protected $fillable = ['id_paci', 'id_prestador', 'tipo_anexo', 'Especialidad_remi', 'adjunto', 'state', 'rzeuz', 'tipo_solicitud','entidad_id', 'estadoconcurrencia_id'];
 
     public function cie10s()
     {

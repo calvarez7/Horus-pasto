@@ -821,7 +821,7 @@ class PacienteController extends Controller
             'sedeproveedores.Nombre as NombreIPS')
             ->leftjoin('sedeproveedores', 'pacientes.IPS', 'sedeproveedores.id')
             ->where('Num_Doc', $cedula)
-            ->whereIn('pacientes.entidad_id', [1,3])
+            ->where('pacientes.entidad_id',auth()->user()->entidad_id)
             ->first();
 
         if (!isset($paciente)) {
