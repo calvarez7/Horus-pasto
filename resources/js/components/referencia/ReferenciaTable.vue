@@ -49,13 +49,6 @@
                                            v-if="props.item.Tipo_anexo == '9'">
                                         <v-icon>file_download</v-icon>
                                     </v-btn>
-                                    <div v-if="can('generar.concurrecia')">
-                                        <v-btn v-if="(props.item.Tipo_anexo == '9' || props.item.Tipo_anexo == '3') && (props.item.estadoconcurrencia_id == null )"
-                                                    color="success" icon @click="concurrenciaRegistro(props.item)">
-                                            <v-icon>mdi-account-settings</v-icon>
-                                        </v-btn>
-                                    </div>
-
                                 </td>
                             </template>
 

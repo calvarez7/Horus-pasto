@@ -36,6 +36,7 @@ class ReferenciaController extends Controller
             'id_prestador'      => auth()->user()->id,
             'tipo_anexo'        => $request->tipo_anexo,
             'Especialidad_remi' => $request->Especialidad_remi,
+            'entidad_id'        => auth()->user()->entidad_id,
             'adjunto'           => 'Sin archivo',
             'state'             => 0,
         ]);
@@ -124,6 +125,7 @@ class ReferenciaController extends Controller
             ->join('pacientes as p', 'referencias.id_paci', 'p.id')
             ->join('bitacoras as b', 'b.Referencia_id', 'referencias.id')
             ->where('b.id', $bitacora->id)
+            ->where("referencias.entidad_id", auth()->user()->entidad_id)
             ->first();
 
         return response()->json([
@@ -243,10 +245,11 @@ class ReferenciaController extends Controller
                 }])
                 ->where("referencias.state", 0)
                 ->where("referencias.tipo_anexo", $anexo)
+                ->where("referencias.entidad_id", auth()->user()->entidad_id)
                 ->get(),
-            '_a2'         => Referencia::where("state", 0)->where("tipo_anexo", "2")->count(),
-            '_a3'         => Referencia::where("state", 0)->where("tipo_anexo", "3")->count(),
-            '_a9'         => Referencia::where("state", 0)->where("tipo_anexo", "9")->count(),
+            '_a2'         => Referencia::where("state", 0)->where("referencias.entidad_id", auth()->user()->entidad_id)->where("tipo_anexo", "2")->count(),
+            '_a3'         => Referencia::where("state", 0)->where("referencias.entidad_id", auth()->user()->entidad_id)->where("tipo_anexo", "3")->count(),
+            '_a9'         => Referencia::where("state", 0)->where("referencias.entidad_id", auth()->user()->entidad_id)->where("tipo_anexo", "9")->count(),
         ];
 
         return $referencias;
@@ -287,6 +290,7 @@ class ReferenciaController extends Controller
                 ->where("referencias.tipo_anexo", $anexo)
                 ->where("referencias.tipo_anexo", $anexo)
                 ->where("id_prestador", $lender)
+                ->where("referencias.entidad_id", auth()->user()->entidad_id)
                 ->get(),
 
             '_a2'         => Referencia::where("state", 0)->where("tipo_anexo", "2")->where("id_prestador", $lender)->count(),
@@ -333,6 +337,7 @@ class ReferenciaController extends Controller
                 }])
                 ->where("referencias.state", 1)
                 ->where("referencias.tipo_anexo", $anexo)
+                ->where("referencias.entidad_id", auth()->user()->entidad_id)
                 ->get(),
             '_a2'         => Referencia::where("state", 1)->where("tipo_anexo", "2")->count(),
             '_a3'         => Referencia::where("state", 1)->where("tipo_anexo", "3")->count(),
@@ -379,6 +384,7 @@ class ReferenciaController extends Controller
                 ->where("referencias.state", 1)
                 ->where("referencias.tipo_anexo", $anexo)
                 ->where("id_prestador", $lender)
+                ->where("referencias.entidad_id", auth()->user()->entidad_id)
                 ->get(),
             '_a2'         => Referencia::where("state", 1)->where("tipo_anexo", "2")->where("id_prestador", $lender)->count(),
             '_a3'         => Referencia::where("state", 1)->where("tipo_anexo", "3")->where("id_prestador", $lender)->count(),
@@ -425,7 +431,8 @@ class ReferenciaController extends Controller
             ->with(['adjuntos' => function ($q) {
                 $q->select(['Ruta', 'referencia_id'])->get();
             }])
-            ->where("referencias.state", 2);
+            ->where("referencias.state", 2)
+            ->where("referencias.entidad_id", auth()->user()->entidad_id);
         if ($request->documento != "") {
             $referencias->where("p.Num_Doc", $request->documento);
         }
@@ -467,7 +474,8 @@ class ReferenciaController extends Controller
             ->with(['adjuntos' => function ($q) {
                 $q->select(['Ruta', 'referencia_id'])->get();
             }])
-            ->where("referencias.state", 2);
+            ->where("referencias.state", 2)
+            ->where("referencias.entidad_id", auth()->user()->entidad_id);
         if ($request->documento != "") {
             $referencias->where("p.Num_Doc", $request->documento);
         }
@@ -487,6 +495,7 @@ class ReferenciaController extends Controller
                 },
             ])
             ->where('ref.id', $referencia->id)
+            ->where("ref.entidad_id", auth()->user()->entidad_id)
             ->join('pacientes as pac', 'pac.id', 'ref.id_paci')
             ->join('sedeproveedores as sed', 'sed.id', 'pac.IPS')
             ->orderBy('ref.id', 'DESC')
@@ -500,9 +509,9 @@ class ReferenciaController extends Controller
 
     public function counter()
     {
-        $pendientes   = Referencia::where('state', 0)->count();
-        $gestion      = Referencia::where('state', 1)->count();
-        $concurrencia = Referencia::where('state', 2)->count();
+        $pendientes   = Referencia::where('state', 0)->where("referencias.entidad_id", auth()->user()->entidad_id)->count();
+        $gestion      = Referencia::where('state', 1)->where("referencias.entidad_id", auth()->user()->entidad_id)->count();
+        $concurrencia = Referencia::where('state', 2)->where("referencias.entidad_id", auth()->user()->entidad_id)->count();
 
         $total = $pendientes + $gestion + $concurrencia;
 
