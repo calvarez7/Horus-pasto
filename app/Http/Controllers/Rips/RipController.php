@@ -17,6 +17,7 @@ use Rap2hpoutre\FastExcel\FastExcel;
 use Illuminate\Http\Response;
 use App\Services\Rips\RipsService;
 use Maatwebsite\Excel\Facades\Excel;
+use Rap2hpoutre\FastExcel\SheetCollection;
 
 class RipController extends Controller
 {
@@ -549,5 +550,306 @@ class RipController extends Controller
         PaqRip::where('id', $id)
             ->update(['estado_id' => 4, 'motivo' => null]);
         return response()->json(['message' => 'RIPS en pendiente']);
+    }
+
+
+    public function guardarRipsJson(Request $request)
+    {
+//        dd($request->all());
+        $request->archivo->getClientOriginalName();
+        $json = file_get_contents($request->archivo);
+//        json_validate($json);
+//        $mensajeError = '';
+//        switch (json_last_error()) {
+//            case JSON_ERROR_NONE:
+////                echo "No errors";
+//                $mensajeError = false;
+//                break;
+//            case JSON_ERROR_DEPTH:
+//                //echo "Maximum stack depth exceeded";
+//                $mensajeError = 'El archivo JSON supera la cantidad de anidamientos permitidos.';
+//                break;
+//            case JSON_ERROR_STATE_MISMATCH:
+//                //echo "Invalid or malformed JSON";
+//                $mensajeError = 'El archivo JSON tiene una estructura no valida (malformado).';
+//                break;
+//            case JSON_ERROR_CTRL_CHAR:
+//                //echo "Control character error";
+//                $mensajeError = 'El archivo JSON tiene  un error de codificacion en los datos.';
+//                break;
+//            case JSON_ERROR_SYNTAX:
+//                //echo "Syntax error";
+//                $mensajeError = 'El archivo JSON tiene un error de sintaxis en su estructura';
+//                break;
+//            case JSON_ERROR_UTF8:
+//                //echo "Malformed UTF-8 characters";
+//                $mensajeError = 'El archivo JSON tiene un error de sintaxis en su estructura';
+//                break;
+//            default:
+////                echo "Unknown error";
+//                $mensajeError = 'El archivo JSON genera un error desconocido en el sistema';
+//                break;
+//        }
+//        if($mensajeError){
+//            $this->agregarError('Archivo','JSON',0,$mensajeError);
+////            return $this->erroresJSON;
+//        }
+
+        $json_data = json_decode($json,true);
+//        dd($json_data);
+        $transaccion = new RipsTransaccion();
+        $transaccion->numDocumentoIdObligado = $json_data['numDocumentoIdObligado'];
+        $transaccion->numFactura = $json_data['numFactura'];
+        $transaccion->numNota = $json_data['numNota'];
+        $transaccion->tipoNota = $json_data['tipoNota'];
+        $transaccion->user_id = auth()->user()->id;
+//        $transaccion->entidad_id = 1;
+//        $transaccion->prestador_id = Prestadore::where('Nit',$json_data['numDocumentoIdObligado'])->first()->id;
+        $transaccion->estado_id = 4;
+        $transaccion->save();
+//        $transaccion = RipsTransaccion::find(1);
+        foreach ($json_data["usuarios"] as $usuario){
+            $usuarioRecorrido = $usuario;
+            $usuarioRecorrido['rips_transaccion_id'] = $transaccion->id;
+            unset($usuarioRecorrido["servicios"]);
+            $usuarioGuardado = RipsUsuario::create($usuarioRecorrido);
+            ////////////////////////////// CONSULTAS //////////////////////////////
+            $consultas = array_map(function ($data) use ($usuarioGuardado) {
+                $array = $data;
+                $array["rips_usuario_id"] = $usuarioGuardado["id"];
+                return $array;
+            },$usuario["servicios"]["consultas"]);
+            $chunk_size = floor(2000 / count($consultas[0]));
+            foreach (array_chunk($consultas, $chunk_size) as $chunk) {
+                RipsConsulta::insert($chunk);
+            }
+            ////////////////////////////// FIN CONSULTAS //////////////////////////////
+            ////////////////////////////// PROCEDIMIENTOS //////////////////////////////
+            $procedimientos = array_map(function ($data) use ($usuarioGuardado) {
+                $array = $data;
+                $array["rips_usuario_id"] = $usuarioGuardado["id"];
+                return $array;
+            },$usuario["servicios"]["procedimientos"]);
+            $chunk_size = floor(2000 / count($procedimientos[0]));
+            foreach (array_chunk($procedimientos, $chunk_size) as $chunk) {
+                RipsProcedimiento::insert($chunk);
+            }
+            ////////////////////////////// FIN PROCEDIMIENTOS //////////////////////////////
+            ////////////////////////////// URGENCIAS //////////////////////////////
+            $urgencias = array_map(function ($data) use ($usuarioGuardado) {
+                $array = $data;
+                $array["rips_usuario_id"] = $usuarioGuardado["id"];
+                return $array;
+            },$usuario["servicios"]["urgencias"]);
+            $chunk_size = floor(2000 / count($urgencias[0]));
+            foreach (array_chunk($urgencias, $chunk_size) as $chunk) {
+                RipsUrgencia::insert($chunk);
+            }
+            ////////////////////////////// FIN URGENCIAS ////////////////////////////
+            ////////////////////////////// HOSPITALIZACION //////////////////////////////
+            $hospitalizaciones = array_map(function ($data) use ($usuarioGuardado) {
+                $array = $data;
+                $array["rips_usuario_id"] = $usuarioGuardado["id"];
+                return $array;
+            },$usuario["servicios"]["hospitalizacion"]);
+            $chunk_size = floor(2000 / count($hospitalizaciones[0]));
+            foreach (array_chunk($hospitalizaciones, $chunk_size) as $chunk) {
+                RipsHospitalizacion::insert($chunk);
+            }
+            ////////////////////////////// FIN HOSPITALIZACION //////////////////////////////
+            ////////////////////////////// RECIEN NACIDOS //////////////////////////////
+            $recienNacidos = array_map(function ($data) use ($usuarioGuardado) {
+                $array = $data;
+                $array["rips_usuario_id"] = $usuarioGuardado["id"];
+                return $array;
+            },$usuario["servicios"]["recienNacidos"]);
+            $chunk_size = floor(2000 / count($recienNacidos[0]));
+            foreach (array_chunk($recienNacidos, $chunk_size) as $chunk) {
+                RipsRecienNacido::insert($chunk);
+            }
+            ////////////////////////////// FIN RECIEN NACIDOS //////////////////////////////
+            ////////////////////////////// MEDICAMENTOS //////////////////////////////
+            $medicamentos = array_map(function ($data) use ($usuarioGuardado) {
+                $array = $data;
+                $array["rips_usuario_id"] = $usuarioGuardado["id"];
+                return $array;
+            },$usuario["servicios"]["medicamentos"]);
+            $chunk_size = floor(2000 / count($medicamentos[0]));
+            foreach (array_chunk($medicamentos, $chunk_size) as $chunk) {
+                RipsMedicamento::insert($chunk);
+            }
+            ////////////////////////////// FIN MEDICAMENTOS //////////////////////////////
+            ////////////////////////////// OTROS SERVICIOS //////////////////////////////
+            $otroservicios = array_map(function ($data) use ($usuarioGuardado) {
+                $array = $data;
+                $array["rips_usuario_id"] = $usuarioGuardado["id"];
+                return $array;
+            },$usuario["servicios"]["otrosServicios"]);
+            $chunk_size = floor(2000 / count($otroservicios[0]));
+            foreach (array_chunk($otroservicios, $chunk_size) as $chunk) {
+                RipsOtrosServicio::insert($chunk);
+            }
+            ////////////////////////////// FIN OTROS SERVICIOS //////////////////////////////
+
+            return $consultas;
+        }
+        return response()->json("Registro Exitoso");
+    }
+
+    public function ripsJsonCargados()
+    {
+        return response()->json(RipsTransaccion::all());
+    }
+
+    public function estadoRipJson($id,$estado)
+    {
+        RipsTransaccion::where('id',$id)
+            ->update(['estado_id' => $estado]);
+        return response()->json("Registro Actualizado");
+    }
+
+    public function consolidadoRipsJson(Request $request)
+    {
+        set_time_limit(300);
+        ini_set('max_execution_time',300);
+        ini_set('memory_limit','-1');
+        $appointments = Collect(DB::select("exec dbo.ConsolidadoJson ?,?,?,?", [$request->archivos1,$request->fechainicio.' 00:00:00.000',$request->fechafin.' 23:59:00.000',$request->consolidado]));
+        $array = json_decode($appointments, true);
+        return (new FastExcel($array))->download('file.xls');
+    }
+
+    public function conversor($tipo,Request $request)
+    {
+        switch (intval($tipo)){
+            case 1:
+                set_time_limit(900);
+                ini_set('max_execution_time', '-1');
+                ini_set('memory_limit', '-1');
+                ini_set('upload_max_filesize ', '500M');
+                ini_set('post_max_size ', '500M');
+                $arrFinal = [];
+                $archivos = [
+                    'AC' => 'consultas',
+                    'AP' => 'procedimientos',
+                    'AM' => 'medicamentos',
+                    'AT' => 'otrosServicios',
+                    'AU' => 'urgencias',
+                    'AH' => 'hospitalizacion',
+                    'AN' => 'recienNacidos'];
+
+
+                $inputFileType = 'Xlsx';
+                $inputFileName = $request["archivo"];
+
+                $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader($inputFileType);
+                $reader->setReadDataOnly(true);
+                $worksheetData = $reader->listWorksheetInfo($inputFileName);
+
+                $reader->setLoadSheetsOnly('AF');
+                $spreadsheet = $reader->load($inputFileName);
+                $worksheet = $spreadsheet->getActiveSheet();
+                $af = $worksheet->toArray();
+                $arrFinal = [
+                    $af[0][0] => $af[1][0],
+                    $af[0][1] => $af[1][1],
+                    $af[0][2] => strtoupper($af[1][2]) === "NULL" ? null : $af[1][2],
+                    $af[0][3] => strtoupper($af[1][3]) === "NULL" ? null : $af[1][3],
+                    'usuarios' => []
+                ];
+                $reader->setLoadSheetsOnly('US');
+                $spreadsheet = $reader->load($inputFileName);
+                $worksheet = $spreadsheet->getActiveSheet();
+                $us = $worksheet->toArray();
+                $usCabeceras = $us[0];
+                unset($us[0]);
+                foreach ($us as $usuarios) {
+                    $arrUs = [];
+                    for ($i = 0; $i < count($usCabeceras); $i++) {
+                        $arrUs[$usCabeceras[$i]] = $usuarios[$i];
+                    }
+                    $arrUs['servicios'] = [
+                        'consultas' => [],
+                        'procedimientos' => [],
+                        'medicamentos' => [],
+                        'otrosServicios' => [],
+                        'urgencias' => [],
+                        'hospitalizacion' => [],
+                        'recienNacidos' => []
+                    ];
+                    $arrFinal['usuarios'][] = $arrUs;
+                }
+
+                foreach ($worksheetData as $worksheet) {
+                    if (strtoupper($worksheet['worksheetName']) !== 'US' && strtoupper($worksheet['worksheetName']) !== 'AF') {
+                        $sheetName = $worksheet['worksheetName'];
+                        $reader->setLoadSheetsOnly($sheetName);
+                        $spreadsheet = $reader->load($inputFileName);
+                        $worksheet = $spreadsheet->getActiveSheet();
+                        $registros = $worksheet->toArray();
+                        $cabeceras = $registros[0];
+                        unset($registros[0]);
+                        foreach ($registros as $registro) {
+                            $arrRegistro = [];
+                            for ($i = 0; $i < count($cabeceras); $i++) {
+                                $arrRegistro[$cabeceras[$i]] = $registro[$i];
+                            }
+
+                            $keyUsuario = array_search($arrRegistro['numDocumentoIdentificacion'], array_column($arrFinal['usuarios'], 'numDocumentoIdentificacion'));
+                            if ($keyUsuario !== false) {
+                                $arrFinal['usuarios'][$keyUsuario]['servicios'][$archivos[strtoupper($sheetName)]][] = $arrRegistro;
+                            }
+                        }
+                    }
+                }
+
+                return response()->json($arrFinal);
+            case 2:
+                $json = file_get_contents($request["archivo"]);
+                $json_data = json_decode($json,true);
+                $arrFinal = [
+                    'af' => [],
+                    'us' => [],
+                    'ac' => [],
+                    'at' => [],
+                    'an' => [],
+                    'ap' => [],
+                    'am' => [],
+                    'au' => [],
+                    'ah' => []
+                ];
+                foreach ($json_data as $keyTransaccion => $valorTransaccion) {
+                    if($keyTransaccion !== 'usuarios'){
+                        $arrFinal['af'][0][$keyTransaccion] = $valorTransaccion;
+                    }
+                    if($keyTransaccion === 'usuarios'){
+                        foreach ($valorTransaccion as $usuario){
+                            $us = $usuario;
+                            $servicios = $usuario['servicios'];
+                            unset($us['servicios']);
+                            $arrFinal['us'][] = $us;
+                            $arrFinal['ac'] = array_merge($arrFinal['ac'],$servicios['consultas']);
+                            $arrFinal['at'] = array_merge($arrFinal['at'],$servicios['otrosServicios']);
+                            $arrFinal['an'] = array_merge($arrFinal['an'],$servicios['recienNacidos']);
+                            $arrFinal['ap'] = array_merge($arrFinal['ap'],$servicios['procedimientos']);
+                            $arrFinal['am'] = array_merge($arrFinal['am'],$servicios['medicamentos']);
+                            $arrFinal['au'] = array_merge($arrFinal['au'],$servicios['urgencias']);
+                            $arrFinal['ah'] = array_merge($arrFinal['ah'],$servicios['hospitalizacion']);
+                        }
+                    }
+
+                }
+                $sheets = new SheetCollection([
+                    'AF' => $arrFinal['af'],
+                    'AC' => $arrFinal['ac'],
+                    'AT' => $arrFinal['at'],
+                    'AN' => $arrFinal['an'],
+                    'AP' => $arrFinal['ap'],
+                    'AM' => $arrFinal['am'],
+                    'AU' => $arrFinal['au'],
+                    'AH' => $arrFinal['ah'],
+                    'US' => $arrFinal['us'],
+                ]);
+                return (new FastExcel($sheets))->download('file.xls');
+        }
     }
 }

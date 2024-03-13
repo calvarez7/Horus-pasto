@@ -16,6 +16,21 @@ export default {
                 import('./../../views/modules/rips/validador.vue')
         },
         {
+            path: 'receptor',
+            component: () =>
+                import('./../../views/modules/rips/ReceptorRips.vue')
+        },
+        {
+            path: 'json',
+            component: () =>
+                import('./../../views/modules/rips/RadicadosJson.vue')
+        },
+        {
+            path: 'conversor',
+            component: () =>
+                import('./../../views/modules/rips/Conversor.vue')
+        },
+        {
             path: 'radicados',
             component: () =>
                 import('./../../views/modules/rips/RipsRadicados.vue')

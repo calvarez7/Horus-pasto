@@ -129,6 +129,51 @@
                 </v-card-text>
             </v-card>
         </v-flex>
+        <hr>
+        <br>
+        <v-flex xs12>
+            <v-card>
+                <v-card-text class="headline cyan" style="color:white">
+                    <h4 style="color:white">Reporte archivo consolidado RIPS (JSON)</h4>
+                </v-card-text>
+                <v-card-text>
+                    <v-layout row wrap>
+                        <v-flex xs2 px-2>
+                            <v-select :items="entidad" v-model="consolidadoJson" label="Selecciona Archivo..."></v-select>
+                        </v-flex>
+                        <v-flex xs2 px-2>
+                            <v-select :items="archivosJson" v-model="archivosJson1" label="Selecciona Archivo..."></v-select>
+                        </v-flex>
+                        <v-flex xs2>
+                            <v-menu v-model="menu7" :close-on-content-click="false" :nudge-right="40" lazy
+                                    transition="scale-transition" offset-y full-width min-width="290px">
+                                <template v-slot:activator="{ on }">
+                                    <VTextField v-model="fechainicioJson" label="Fecha inicial" prepend-icon="event"
+                                                readonly v-on="on" />
+                                </template>
+                                <VDatePicker color="primary" :max="fechafinJson" v-model="fechainicioJson"
+                                             @input="menu7 = false" />
+                            </v-menu>
+                        </v-flex>
+                        <v-flex xs2>
+                            <v-menu v-model="menu8" :close-on-content-click="false" :nudge-right="40" lazy
+                                    transition="scale-transition" offset-y full-width min-width="290px">
+                                <template v-slot:activator="{ on }">
+                                    <VTextField v-model="fechafinJson" label="Fecha final" prepend-icon="event" readonly
+                                                v-on="on" />
+                                </template>
+                                <VDatePicker color="primary" :min="fechainicioJson" :max="today" v-model="fechafinJson"
+                                             @input="menu8 = false" />
+                            </v-menu>
+                        </v-flex>
+                        <v-flex xs1 px-2>
+                            <v-btn color="warning" :loading="loading" round @click="consolidatedRipsJson()">Descargar
+                            </v-btn>
+                        </v-flex>
+                    </v-layout>
+                </v-card-text>
+            </v-card>
+        </v-flex>
     </v-layout>
 
     <!-- </v-layout>
@@ -146,6 +191,8 @@
         },
         data: () => {
             return {
+                archivosJson1:'',
+                consolidadoJson:'',
                 consolidado: '',
                 financiero: '',
                 archivos1: '',
@@ -157,6 +204,7 @@
                     valor: 7
                 }],
                 archivos: ['AF', 'AT', 'AC', 'AP', 'AU', 'AN', 'AM', 'AH', 'US','CT'],
+                archivosJson:['Consultas','Procedimientos','Urgencias','Hospitalizacion','RecienNacidos','Medicamentos','OtrosServicios'],
                 archivosOnco: ['AC','AM'],
                 count: {
                     _a2: 0,
@@ -170,6 +218,8 @@
                 menu4: false,
                 menu5: false,
                 menu6: false,
+                menu7: false,
+                menu8: false,
                 referencias: [{
                         color: '#00b297',
                         icon: 'history',
@@ -204,6 +254,8 @@
                 finishDate1: moment().format('YYYY-MM-DD'),
                 fechainicio: moment().format('YYYY-MM-DD'),
                 fechafin: moment().format('YYYY-MM-DD'),
+                fechafinJson: moment().format('YYYY-MM-DD'),
+                fechainicioJson: moment().format('YYYY-MM-DD'),
                 today: moment().format('YYYY-MM-DD'),
             }
         },
@@ -334,6 +386,37 @@
 
                     }
 
+
+                }).catch(err => {
+                    this.loading = false;
+                    this.showMessage('No hay ConsolidadoRips para descargar')
+                })
+            },
+            consolidatedRipsJson(){
+                this.loading = true;
+                axios({
+                    method: 'post',
+                    params: {
+                        fechainicio: this.fechainicioJson,
+                        fechafin: this.fechafinJson,
+                        consolidado: this.consolidadoJson,
+                        archivos1: this.archivosJson1
+                    },
+                    url: '/api/rips/consolidadoRipsJson',
+                    responseType: 'blob'
+                }).then(res => {
+                    let blob = new Blob([res.data], {
+                        type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                    });
+                    let url = window.URL.createObjectURL(blob);
+                    let a = document.createElement('a');
+
+                    a.download = `ConsolidadoRipsJSON${this.archivosJson1}${this.fechainicio}_${this.fechafin}.xlsx`;
+                    a.href = url;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    this.loading = false;
 
                 }).catch(err => {
                     this.loading = false;

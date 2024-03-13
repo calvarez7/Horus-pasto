@@ -19,7 +19,10 @@
                     title: 'Módulo Validador',
                     items: [
                         { name: 'Validador Rips', path: '/rips', can: 'rips.entrar' },
+                        { name: 'Receptor Rips', path: '/rips/receptor', can: 'rips.entrar' },
                         { name: 'Radicados', path:'/rips/radicados', can:'rips.entrar' },
+                        { name: 'Radicados (JSON)', path:'/rips/json', can:'rips.entrar' },
+                        { name: 'conversores', path:'/rips/conversor', can:'rips.entrar' },
                         { name: 'Resolucion 1552', path:'/rips/resolucion', can:'rips.entrar' },
                         { name: 'Pendientes', path: '/rips/pendientes', can: 'rips.entrar' },
                         { name: 'Reportes', path: '/rips/reportes', can: 'rips.reporte.entrar' },
