@@ -37,7 +37,11 @@ Route::group(['prefix' => 'rips'], function () {
         Route::get('descargarerrores/{id}',             'Rips\RipController@descargarErrores');
 
 
-
+        Route::post('guardar-rips-json','Rips\RipController@guardarRipsJson');
+        Route::get('rips_json_cargados','Rips\RipController@ripsJsonCargados');
+        Route::put('estado-rip-json/{id}/{estado}','Rips\RipController@estadoRipJson');
+        Route::post('consolidadoRipsJson','Rips\RipController@consolidadoRipsJson');
+        Route::post('conversor/{tipo}','Rips\RipController@conversor');
 
     });
 });

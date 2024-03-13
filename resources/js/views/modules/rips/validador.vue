@@ -56,7 +56,7 @@
                                 <template v-slot:items="props">
                                     <td class="text-xs-center">{{ props.item.Nombre }}</td>
                                     <td class="text-xs-center">{{ props.item.codigo }}</td>
-                                    <td class="text-xs-center">{{ props.item.update }}</td>
+                                    <td class="text-xs-center">{{ props.item.updated_at }}</td>
                                     <td class="text-xs-center"><v-chip :color="colorEstado(props.item.estado_id)" text-color="white">{{ props.item.estado.Nombre }}</v-chip>
                                         <v-tooltip bottom>
                                             <template v-slot:activator="{ on }">
@@ -104,12 +104,7 @@ export default {
         preload:false,
         entidad: null,
         listaPaquetes:[],
-        entidades: [
-            {id:1,nombre:'REDVITAL UT'},
-            {id:2,nombre:'MEDIMAS'},
-            {id:3,nombre:'FONDO DE PASIVO SOCIAL DE FERROCARRILES NACIONALES DE COLOMBIA'},
-            {id:8,nombre:'FONDO DE FERROCARRILES NACIONALES MAGDALENA'}
-        ],
+        entidades: [],
         headers: [
             { text: 'Paquete', value: 'nombre_paquete',sortable:false, align:"center" },
             { text: 'Codigo Habilitación', value: 'codigo',sortable:false, align:"center" },
@@ -118,7 +113,7 @@ export default {
         ],
     }),
     created(){
-        // this.listarPaquetesCargados();
+        this.listaEntidades();
         Echo.channel('horus')
             .listen('EventEstadoRips', (e) => {
                 this.listarPaquetesCargados();
@@ -261,8 +256,11 @@ export default {
 
                 }
             });
-
-
+        },
+        listaEntidades(){
+            axios.get('/api/entidades/getEntidades').then(res => {
+                this.entidades = res.data;
+            })
         }
     }
 }

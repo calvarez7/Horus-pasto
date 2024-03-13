@@ -149,7 +149,6 @@ class ValidacionContenidoRips implements ShouldQueue
                 break;
         }
         $path = storage_path("app/public/temporalesrips/".$paqueteRip->id);
-        chmod($path,0777);
         $files = File::allFiles($path);
         $this->fillFileNames($files);
         $this->checkCTFileContent();
