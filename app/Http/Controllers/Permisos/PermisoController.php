@@ -66,8 +66,12 @@ class PermisoController extends Controller
             ->join('tipos', 'Tipo_id', 'tipos.id')
             ->where('permissions.id', $permiso->id)
             ->first();
-            $permisoString = (string)$permisoTipo['Nombre'];
-            $permiso['Tipo'] = $permisoString;
+            if ($permisoTipo) {
+                $permisoString = (string) $permisoTipo['Nombre'];
+                $permiso['Tipo'] = $permisoString;
+            } else {
+                $permiso['Tipo'] = null;
+            }
         }
         return response()->json($permissions, 200);
     }

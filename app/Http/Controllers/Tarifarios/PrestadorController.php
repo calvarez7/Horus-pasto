@@ -16,7 +16,7 @@ class PrestadorController extends Controller
 
     public function all()
     {
-        $prestador = Prestadore::where('Estado_id', 1)->get();
+        $prestador = Prestadore::where('Estado_id', 1)->where('entidad_id',auth()->user()->entidad_id)->get();
         return response()->json($prestador);
     }
 

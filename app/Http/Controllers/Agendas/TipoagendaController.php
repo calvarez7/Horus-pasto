@@ -68,7 +68,7 @@ class TipoagendaController extends Controller
     //Uso solo para agendamiento
     public function habilitados()
     {
-        $tipoAgenda = TipoAgenda::where('estado_id', 3)->get();
+        $tipoAgenda = TipoAgenda::where('estado_id', 3)->where('entidad_id',auth()->user()->entidad_id)->get();
         return response()->json($tipoAgenda, 200);
     }
 

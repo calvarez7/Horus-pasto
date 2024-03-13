@@ -14,7 +14,6 @@ class PacienteRepository
             $datos = Paciente::where('Num_Doc',$request->cedula)
             ->first();
         }else{
-
             $datos = "";
             $paciente = Paciente::where('Num_Doc',$request->cedula)->first();
             if($paciente){

@@ -29,7 +29,7 @@ class UserController extends Controller
 {
     public function all()
     {
-        $users = User::with('roles')->get();
+        $users = User::with('roles')->where('entidad_id',auth()->user()->entidad_id)->get();
         return response()->json($users, 200);
     }
 

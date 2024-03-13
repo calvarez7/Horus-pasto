@@ -545,7 +545,6 @@
             entidadesActiva(){
                 axios.get('/api/entidades/getEntidades').then(res => {
                     this.entidades = res.data;
-                    console.log('entidades', res.data);
                 });
             },
             onFilePicked() {
