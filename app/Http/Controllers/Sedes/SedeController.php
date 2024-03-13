@@ -82,7 +82,7 @@ class SedeController extends Controller
 
     public function enabled()
     {
-        $sedes = Sede::where('Estado_id', 1)->get();
+        $sedes = Sede::where('Estado_id', 1)->where('entidad_id',auth()->user()->entidad_id)->get();
         return response()->json($sedes, 200);
     }
 

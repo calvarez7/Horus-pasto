@@ -329,7 +329,7 @@ class PacienteController extends Controller
             ->leftjoin('users','users.id','pacientes.Medicofamilia')
             ->where('Num_Doc', $cedula)
             ->where('Estado_Afiliado', 1)
-            ->whereIn('entidad_id', [1,3,7])
+            ->where('pacientes.entidad_id',auth()->user()->entidad_id)
             ->first();
         if ($paciente) {
             return response()->json([
