@@ -253,7 +253,7 @@
                                                     <v-flex xs12>
                                                         <v-card v-if="data.Estado == 'Inadecuado'" class="mb-3">
                                                             <v-toolbar flat color="primary" dark>
-                                                                <v-toolbar-title>Inadecuado</v-toolbar-title>
+                                                                <v-toolbar-title>Reasignado</v-toolbar-title>
                                                             </v-toolbar>
                                                             <v-container grid-list-md>
                                                                 <v-layout wrap>
