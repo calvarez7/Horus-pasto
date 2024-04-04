@@ -28,6 +28,7 @@ class CertificadoAfiliado extends FPDF
             DB::raw("CONCAT(Primer_Nom,' ',SegundoNom,' ',Primer_Ape,' ',Segundo_Ape) as NombreCompleto"),
             'Tipo_Afiliado',
             'Doc_Cotizante',
+            'pacientes.Ut',
             DB::raw("CONVERT(NVARCHAR(10),Fecha_Afiliado,103) as FechaAfiliado"),
             'Num_Doc as documento',
             'municipios.Nombre as municipio_Atencion',
@@ -40,7 +41,6 @@ class CertificadoAfiliado extends FPDF
             ->join('estados', 'estados.id', 'pacientes.Estado_afiliado')
             ->join('sedeproveedores', 'sedeproveedores.id', 'pacientes.IPS')
             ->join('municipios', 'municipios.id', 'sedeproveedores.Municipio_id')
-            ->join('municipios as m', 'municipios.id', 'pacientes.Mpio_Atencion')
             ->where('pacientes.id', $id)->first();
 
         self::$certificado = Certificado::select(DB::raw("CONCAT('Radicado # ',id,' documento ',num_doc,' Nombre ',full_name) as aditoria"))
@@ -104,7 +104,7 @@ class CertificadoAfiliado extends FPDF
         $descripcion = $pdf->GetY();
         $pdf->SetXY(16,$descripcion+4);
         $pdf->SetFont('Arial', '', 12);
-        $pdf->MultiCell(175, 5, utf8_decode('La Unión Temporal REDVITAL U.T. certifica que'. ' ' .utf8_decode(self::$paciente->NombreCompleto) .' '.'identificado(a) con '.' '.self::$paciente->Tipo_Doc.' '
+        $pdf->MultiCell(175, 5, utf8_decode('La '.utf8_decode(self::$paciente->Ut).' certifica que'. ' ' .utf8_decode(self::$paciente->NombreCompleto) .' '.'identificado(a) con '.' '.self::$paciente->Tipo_Doc.' '
         .' N°' . ' ' . self::$paciente->documento . ' ' . 'su fecha de afiliación es del '.self::$paciente->FechaAfiliado.', Afiliado al municipio de '.self::$paciente->municipio_Atencion.' y registra en estado '.' '.self::$paciente->estado.' '.' como'.' '. self::$paciente->Tipo_Afiliado.' '
         .'en el Fondo Nacional de Prestaciones Sociales del Magisterio- FOMAG, con IPS primaria'.' '.self::$paciente->IPS_sede.' municipio de '.self::$paciente->municipio.'.'), 0, 'J');
         $pdf->Ln();

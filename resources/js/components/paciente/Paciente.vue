@@ -557,7 +557,7 @@ export default {
       preloadHistoria: false,
       ciclo_vida: "",
       paciente: {},
-      regional: ["Choco", "Antioquia", "Santander"],
+      regional: ["Putumayo", "Pasto"],
       rh: ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"],
       estrato: ["1", "2", "3", "4", "5", "6"],
       tipovivienda: ["Propia", "Arrendada", "Familiar", "Usufructo"],

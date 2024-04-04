@@ -116,8 +116,8 @@
                                                     <v-layout wrap align-center>
                                                         <v-flex xs12>
                                                             <v-textarea outline name="input-7-4"
-                                                                label="Escribe Aca la Nota...." v-model="nota.aclaratoria"
-                                                                required>
+                                                                label="Escribe Aca la Nota...."
+                                                                v-model="nota.aclaratoria" required>
                                                             </v-textarea>
                                                         </v-flex>
                                                         <v-flex>
@@ -128,7 +128,8 @@
                                                         </v-flex>
                                                         <v-flex xs12 v-for="(notaRealizada, index) in notaRealizada"
                                                             :key="notaRealizada.id">
-                                                            <v-card-title style="color:black" v-if="notaRealizada != null">
+                                                            <v-card-title style="color:black"
+                                                                v-if="notaRealizada != null">
                                                                 <span class="title layout justify-center ">Nota
                                                                     Aclaratoria # {{ index + 1 }}</span>
                                                             </v-card-title>
@@ -141,7 +142,7 @@
                                                                         </strong>{{ notaRealizada.created_at }}</span>
                                                                     <span><strong>Usuario que realiza nota:
                                                                         </strong>{{ notaRealizada.name + ' ' +
-                                                                            notaRealizada.apellido }}</span>
+            notaRealizada.apellido }}</span>
                                                                 </v-flex>
                                                             </v-layout>
                                                         </v-flex>
@@ -155,7 +156,8 @@
                                     <v-card flat>
                                         <v-card-title class="headline grey lighten-2">Diagnosticos</v-card-title>
                                         <v-data-table class="fb-table-elem" :headers="diagnosticHeaders"
-                                            :items="Diagnosticos" item-key="index" :items-per-page="10" hide-actions expand>
+                                            :items="Diagnosticos" item-key="index" :items-per-page="10" hide-actions
+                                            expand>
                                             <template v-slot:items="Diagnostico">
                                                 <tr @click="Diagnostico.expanded = !Diagnostico.expanded">
                                                     <td class="text-xs-center">
@@ -242,7 +244,7 @@
                                                     Consentimientos Informados
                                                     <v-icon>assignment_turned_in</v-icon>
                                                 </v-btn>
-                                                <v-btn color="red lighten-2" dark @click="abrirHc()">
+                                                <v-btn color="red lighten-2" dark @click="imprimirhcCompleta()">
                                                     Ver Detalle Historia
                                                     <v-icon>visibility</v-icon>
                                                 </v-btn>
@@ -257,7 +259,8 @@
                 </v-layout>
                 <v-layout row>
                     <v-flex xs12 md12 lg12>
-                        <v-data-table :headers="header" :items="historiapaciente" item-key="index" v-if="dialog_timeline">
+                        <v-data-table :headers="header" :items="historiapaciente" item-key="index"
+                            v-if="dialog_timeline">
                             <template v-slot:items="props">
                                 <td class="text-xs-center">{{ props.item.Datetimeingreso }}</td>
                                 <!--                                <td class="text-xs-center">{{ props.item.Cédula}}</td>-->
@@ -278,7 +281,7 @@
                                 <!--                                <td class="text-xs-center">{{ props.item.Sexo}}</td>-->
                                 <td class="text-xs-center">{{ props.item.Atendido_Por }}</td>
                                 <td class="text-xs-center">{{ props.item.Especialidad }}</td>
-                                <td class="text-xs-center">{{ props.item.Tipocita }}</td>
+                                <td class="text-xs-center">{{ props.item.Actividad }}</td>
                                 <td class="text-xs-center" v-if="props.item.Nombre_Adjunto == null">
                                     <v-tooltip top>
                                         <template v-slot:activator="{ on }">
@@ -444,7 +447,7 @@ export default {
             align: 'center'
         },
         {
-            text: 'Tipo',
+            text: 'Tipo Agenda',
             sortable: false,
             align: 'center'
         },
@@ -825,14 +828,22 @@ export default {
                 })
                 .then(res => {
                     this.preload_historico = false;
-                    const response = res.data
+                    const response = res.data;
                     if (this.logueado.id == 1276 || this.logueado.id == 1802) {
-                        this.historiapaciente = response.filter(item => item.Especialidad == "OPTOMETRIA" ||
-                            item.Especialidad == "OFTALMOLOGIA ");
+                        this.historiapaciente = response.filter(item => item.Especialidad == "OPTOMETRIA" || item.Especialidad == "OFTALMOLOGIA ");
                     } else {
-                        this.historiapaciente = response
+                        this.historiapaciente = response;
                     }
                     this.dialog_timeline = true;
+                    this.preload_historico = false;
+                })
+                .catch(error => {
+                    this.preload_historico = false;
+                    swal({
+                        title: "Error al obtener la historia del paciente",
+                        text: error.response.data.error,
+                        icon: "error"
+                    });
                 });
         },
         async allHistorias() {
@@ -941,16 +952,18 @@ export default {
                 .catch(err => console.log(err.response));
         },
 
-        imprimirhc() {
+        imprimirhcCompleta() {
             let pdf = [];
             pdf = this.dataHistoria;
             pdf.cita_paciente_id = this.dataHistoria.id;
-            pdf.type = "historiaintegral";
+            pdf.type = "historiaintegralCompleta";
+            this.preload = true;
             axios
                 .post("/api/historia/imprimirhc", pdf, {
                     responseType: "arraybuffer"
                 })
                 .then(res => {
+                    this.preload = false;
                     let blob = new Blob([res.data], {
                         type: "application/pdf"
                     });
@@ -958,6 +971,29 @@ export default {
                     link.href = window.URL.createObjectURL(blob);
                     window.open(link.href, "_blank");
                 });
+            this.preload = false;
+        },
+
+        imprimirhc() {
+            let pdf = [];
+            pdf = this.dataHistoria;
+            pdf.cita_paciente_id = this.dataHistoria.id;
+            pdf.type = "historiaintegral";
+            this.preload = true;
+            axios
+                .post("/api/historia/imprimirhc", pdf, {
+                    responseType: "arraybuffer"
+                })
+                .then(res => {
+                    this.preload = false;
+                    let blob = new Blob([res.data], {
+                        type: "application/pdf"
+                    });
+                    let link = document.createElement("a");
+                    link.href = window.URL.createObjectURL(blob);
+                    window.open(link.href, "_blank");
+                });
+            this.preload = false;
 
         },
         enlaseDinamica() {

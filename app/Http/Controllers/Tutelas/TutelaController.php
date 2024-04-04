@@ -27,6 +27,7 @@ class TutelaController extends Controller
     public function all(Request $request)
     {
         $pacientes = Paciente::select(['Pacientes.*'])
+            ->where('entidad_id',auth()->user()->entidad_id)
             ->where('Tienetutela', 1);
         if (isset($request->search)) {
             $pacientes = $pacientes->where('Num_Doc', $request->search)
@@ -44,13 +45,14 @@ class TutelaController extends Controller
     public function activo($cedula)
     {
         $paciente = Paciente::select('Pacientes.*')
-            ->where('Num_Doc', $cedula)->first();
+            ->where('Num_Doc', $cedula)
+            ->where('entidad_id',auth()->user()->entidad_id)->first();
 
         if (!isset($paciente)) {
             return response()->json([
                 'message' => '¡El paciente consultado no existe en nuestra base de datos validar en HOSVITAL si cambio de UT!',
             ]);
-        } elseif ($paciente->Estado_Afiliado == 2) {
+        } elseif ($paciente->Estado_Afiliado == 27) {
             return response()->json([
                 'message' => '¡El paciente se encuentra retirado de Sumimedical!',
             ], 200);
@@ -355,6 +357,7 @@ class TutelaController extends Controller
                         ->get();
                 }])
                 ->where('Roltutelas.Estado_id', 1)
+                ->where('Pacientes.entidad_id',auth()->user()->entidad_id)
                 ->whereIn('Estados.id', $estadoTutela)
                 ->whereIn('Roltutelas.Rol_id', $ids)
                 ->distinct()
@@ -417,6 +420,7 @@ class TutelaController extends Controller
                         ->get();
                 }])
                 ->whereIn('Estados.id', $estadoTutela)
+                ->where('Pacientes.entidad_id',auth()->user()->entidad_id)
                 ->distinct()
                 ->get();
             return response()->json($asignados, 201);
@@ -491,6 +495,7 @@ class TutelaController extends Controller
                         ->get();
                 }])
                 ->where('Estados.id', 13)
+                ->where('Pacientes.entidad_id',auth()->user()->entidad_id)
                 ->whereIn('Roltutelas.Rol_id', $ids)
                 ->distinct()
                 ->get();
@@ -551,6 +556,7 @@ class TutelaController extends Controller
                         ->get();
                 }])
                 ->where('Estados.id', 13)
+                ->where('Pacientes.entidad_id',auth()->user()->entidad_id)
                 ->distinct()
                 ->get();
             return response()->json($cerradas, 201);
@@ -944,12 +950,12 @@ class TutelaController extends Controller
         $cedula = $request->documento;
         $tutelaAlert = $request->tutelaid;
 
-        // $email = Mail::send('email_tutelas',
-        //     ['users' => $users, 'tutelaAlert' => $tutelaAlert, 'cedula' => $cedula], function ($m) use ($users, $tutelaAlert, $cedula) {
-        //         foreach ($users as $user) {
-        //             $m->to($user->email, $user->name)->subject('Notificación Tutelas');
-        //         }
-        //     });
+        $email = Mail::send('email_tutelas',
+            ['users' => $users, 'tutelaAlert' => $tutelaAlert, 'cedula' => $cedula], function ($m) use ($users, $tutelaAlert, $cedula) {
+                foreach ($users as $user) {
+                    $m->to($user->email, $user->name)->subject('Notificación Tutelas');
+                }
+            });
 
         return response()->json([
             'message' => 'Alerta enviada con exito!',
