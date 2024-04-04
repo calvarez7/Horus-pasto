@@ -410,7 +410,7 @@
         },
         methods: {
             validacion() {
-                if ((this.paciente.Estado_Afiliado == 1 && this.paciente.prestador_id == 67) &&
+                if ((this.paciente.Estado_Afiliado == 1 && this.paciente.prestador_id == 892) &&
                     (this.paciente.entidad_id == 1 || this.paciente.entidad_id == 3 || this.paciente.entidad_id == 5)) {
                     return true;
                 } else {

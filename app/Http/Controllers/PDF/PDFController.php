@@ -46,6 +46,7 @@ use App\Modelos\NovedadesOrdenCompra;
 use App\Formats\HistoriaClinicaMasivo;
 use App\Formats\OrdenCompraMedicamentos;
 use App\Formats\HistoriaClinicaIntengral;
+use App\Formats\HistoriaClinicaCompleta;
 use App\Formats\IntructivoValidacion1552;
 use App\Formats\ConcentimientosInformados;
 use App\Formats\CertificadoEmpleadosActivos;
@@ -430,6 +431,10 @@ class PDFController extends Controller
             exit();
         } elseif ($request->type == 'historiaintegral') {
             $pdf = new HistoriaClinicaIntengral();
+            $pdf->generar($request->cita_paciente_id);
+            exit();
+        } elseif ($request->type == 'historiaintegralCompleta') {
+            $pdf = new HistoriaClinicaCompleta();
             $pdf->generar($request->cita_paciente_id);
             exit();
         } elseif ($request->type == 'Analisis') {
